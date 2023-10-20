@@ -10,7 +10,7 @@ import Buy from "./pages/Buy";
 import Trade from "./pages/Trade";
 import Cart from "./components/Cart";
 import Contact from "./components/Contact";
-
+import ProductDetails from "./components/ProductDetails";
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
@@ -45,6 +45,8 @@ function App() {
           <Route path="/trade" element={<Trade />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/product/:tradeId" element={<ProductDetails />} />
+
           {/* Add more routes for other pages */}
         </Routes>
       </Router>
