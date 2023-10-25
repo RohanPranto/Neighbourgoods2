@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useAuth0 } from '@auth0/auth0-react';
 import { collection, query, getDocs, addDoc } from 'firebase/firestore';
 import { cartCollectionRef, firestore } from '../firebase'; // Import the Firestore cart collection reference
-
+import "../App.css"
 function Buy({ setCartItems }) {
   const { user } = useAuth0(); // Import 'user' from useAuth0
   const [products, setProducts] = React.useState([]);
@@ -62,18 +62,32 @@ function Buy({ setCartItems }) {
                   <h5 className="card-title">{product.name}</h5>
                   <p className="card-text">{product.location}</p>
                   <p className="card-text">Rs {product.price.toFixed(0)}</p>
-                  <button
-                    className="btn btn-success btn-sm"
+                  {/* <button
+                    className="btn btn-success btn-sm" style={{ marginRight: '10px' }}
                     onClick={() => alert('Buy Now clicked for ' + product.name)}
                   >
                     Buy Now
                   </button>
                   <button
-                    className="btn btn-success mx-2 btn-sm"
+                    className="btn btn-success btn-sm"
                     onClick={() => addToCart(product)}
                   >
                     Add to Cart
-                  </button>
+                  </button> */}
+                  <div className="button-div">
+                    <button
+                      className="btn btn-success btn-sm" 
+                      onClick={() => alert('Buy Now clicked for ' + product.name)}
+                    >
+                      Buy Now
+                    </button>
+                    <button
+                      className="btn btn-success btn-sm"
+                      onClick={() => addToCart(product)}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

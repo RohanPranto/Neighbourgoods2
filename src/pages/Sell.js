@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { firestore } from '../firebase';
-
+import "../App.css"
 function Sell() {
   const [productName, setProductName] = useState('');
   const [productPrice, setProductPrice] = useState('');

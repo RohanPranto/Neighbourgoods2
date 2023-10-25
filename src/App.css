@@ -34,3 +34,63 @@ h1{
     margin-left: auto;
     margin-right: auto;
 }
+/* Buy.css */
+.button-div{
+    display: flex;
+    justify-content: center;
+    gap:10px; 
+    margin-bottom: 10px;
+}
+.card-img-top{
+    aspect-ratio: 1 / 1;
+}
+.button-div> button{
+    width: 100px;
+}
+.card{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.card-title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+input , textarea, select{
+    min-height: 40px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    outline: none;
+    background: #e8e8e8;
+    box-shadow: 5px 5px 17px #c8c8c8,
+               -5px -5px 17px #ffffff;
+    border: none;
+    border-radius: 10px;
+    transition: all .5s;
+  }
+  
+  input:focus {
+    background: #e8e8e8;
+    box-shadow: inset 5px 5px 17px #c8c8c8,
+              inset -5px -5px 17px #ffffff;
+  }
+  
+/* Define styles for screens with a maximum width of 767px (typical mobile screens) */
+@media (max-width: 767px) {
+    .card-title {
+      font-size: 1.2rem; /* Adjust the font size for mobile screens */
+    }
+  
+    .card-text {
+      font-size: 1rem; /* Adjust the font size for mobile screens */
+    }
+    
+    .btn.btn-success.btn-sm {
+      margin-bottom: 10px; /* Add margin to the "Buy Now" button for mobile screens */
+      width: 100px;
+    }
+    .button-div{
+        display: inline;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+  }
+  
