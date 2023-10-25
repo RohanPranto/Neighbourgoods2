@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, deleteDoc, doc } from "firebase/firestore";
-
+import { getDocs, deleteDoc, doc, collection, query, where } from "firebase/firestore";
 import { cartCollectionRef } from "../firebase";
+import { useAuth0 } from '@auth0/auth0-react';
+import { Link } from "react-router-dom";
 
 interface CartItem {
   id: string;
@@ -9,28 +10,35 @@ interface CartItem {
   name: string;
   price: number;
   quantity: number;
+  userId: string; // Add a userId field to associate the item with the user
 }
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
+  const { user } = useAuth0();
 
   useEffect(() => {
-    const fetchCartItems = async () => {
-      try {
-        const querySnapshot = await getDocs(cartCollectionRef);
-        const items = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        console.log("Fetched cart items:", items);
-        setCartItems(items);
-      } catch (error) {
-        console.error("Error fetching cart items:", error);
-      }
-    };
+    if (user) {
+      const fetchUserCartItems = async () => {
+        try {
+          // Create a query to fetch items associated with the current user
+          const q = query(cartCollectionRef, where("userId", "==", user.sub));
 
-    fetchCartItems();
-  }, []);
+          const querySnapshot = await getDocs(q);
+          const items = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          console.log("Fetched user's cart items:", items);
+          setCartItems(items);
+        } catch (error) {
+          console.error("Error fetching cart items:", error);
+        }
+      };
+
+      fetchUserCartItems();
+    }
+  }, [user]);
 
   const removeFromCart = async (itemId: string) => {
     console.log("Removing item with ID:", itemId);
@@ -46,7 +54,7 @@ function Cart() {
       <div className="row row-cols-1 row-cols-md-6">
         {cartItems.map((item) => (
           <div key={item.id} className="col mb-4">
-            <div className="card"  style={{ maxWidth: "200px" }}>
+            <div className="card" style={{ maxWidth: "200px" }}>
               <img
                 src={item.imageUrl}
                 className="card-img-top"
@@ -68,7 +76,12 @@ function Cart() {
           </div>
         ))}
       </div>
-      <button className="btn btn-primary">Checkout</button>
+      {/* <button className="btn btn-primary">Checkout</button> */}
+      <Link
+                  className="btn btn-primary"
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="/checkout"
+                >Checkout</Link>
     </div>
   );
 }

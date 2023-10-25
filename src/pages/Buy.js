@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from "react";
+import { useAuth0 } from '@auth0/auth0-react';
+import { collection, query, getDocs, addDoc } from 'firebase/firestore';
 import { cartCollectionRef, firestore } from '../firebase'; // Import the Firestore cart collection reference
-import { addDoc, collection, query, getDocs } from 'firebase/firestore';
 
-function Buy() {
-  const [products, setProducts] = useState([]);
+function Buy({ setCartItems }) {
+  const { user } = useAuth0(); // Import 'user' from useAuth0
+  const [products, setProducts] = React.useState([]);
 
   // Function to fetch products from Firestore
   const fetchProducts = async () => {
@@ -32,9 +34,12 @@ function Buy() {
   const addToCart = async (product) => {
     try {
       // Add the product to the Firestore cart collection
-      await addDoc(cartCollectionRef, product);
+      await addDoc(cartCollectionRef, { ...product, userId: user.sub });
 
       alert(`Added ${product.name} to your cart.`);
+      
+      // Update the cart items using the prop
+      setCartItems((prevItems) => [...prevItems, { ...product, userId: user.sub }]);
     } catch (error) {
       console.error("Error adding item to cart:", error);
     }
@@ -47,17 +52,16 @@ function Buy() {
         <div className="row row-cols-2 row-cols-md-2 row-cols-lg-4">
           {products.map((product) => (
             <div key={product.id} className="col mb-4">
-              <div className="card" style={{ width: '80%' , height:"100%" }}>
+              <div className="card" style={{ width: '80%', height: "100%" }}>
                 <img
-                  src={product.imageUrl} // Display the product's image
+                  src={product.imageUrl}
                   className="card-img-top"
                   alt={product.name}
                 />
                 <div className="card-body">
                   <h5 className="card-title">{product.name}</h5>
-                  <p className="card-text">{product.location}</p> {/* Display seller's location */}
+                  <p className="card-text">{product.location}</p>
                   <p className="card-text">Rs {product.price.toFixed(0)}</p>
-                  {/* <p className="card-text">{product.description}</p> */}
                   <button
                     className="btn btn-success btn-sm"
                     onClick={() => alert('Buy Now clicked for ' + product.name)}
