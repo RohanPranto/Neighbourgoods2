@@ -1,28 +1,45 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import gift from "../assets/gift2.jpg";
-import Sell from "../pages/Sell";
+import sell from "../assets/sell.jpg";
+import gift2 from "../assets/gift2.jpg";
+import gift3 from "../assets/gift3.jpg";
+import rent from "../assets/rent.jpg";
+import lift from "../assets/lift.jpg";
 import Contact from "./Contact";
-import "../App.css"
+import "../App.css";
 function Home() {
   return (
     <div>
       <div className="container">
         <div className="row">
-          <div className="col-md-6 home-div" >
+          <div className="col-md-6 home-div">
             <h1>Get Your Goods!</h1>
             <p className="para-text">
-              Discover a new way to trade items that matter to you!
+              {/* Discover a new way to trade items that matter to you!
               NeighbourGoods is the ultimate online destination for local
               trading and exchanging within your neighborhood. Say goodbye to
               unused items cluttering your space , you can give them new life by
               swapping with items you need or desire. Join us today and become a
-              part of a vibrant and sustainable local exchange network!
+              part of a vibrant and sustainable local exchange network! */}
+              Discover a diverse world of possibilities with NeighbourGoods,
+                your local community marketplace. Whether you're looking to <strong>BUY </strong>
+                essential items, <strong>SELL </strong> pre-loved treasures, <strong>RENT</strong> temporarily, or
+                engage in <strong>RIDE SHARING</strong>, we've got you covered. But that's not
+                all - our platform's heart and soul is <strong>TRADE</strong>. It's not just
+                about items; it's about connecting with your neighbors, reducing
+                waste, and swapping goods you care about. 
+                <br />
+                <br />
+                Join us today, and be
+                part of a vibrant, sustainable, and eco-friendly local exchange
+                network. Experience a new way of living, all within your
+                neighborhood!
             </p>
-            <button className="btn btn-success">Learn More</button>
+            {/* <Link to="about-us" className="btn btn-success">Learn More</Link> */}
+            <a className="btn btn-success" href="#about-us">Learn More</a>
           </div>
           <div className="col-md-6">
-            <img className="img-fluid" src={gift} alt="gift" />
+            <img className="img-fluid" src={gift2} alt="gift" />
           </div>
         </div>
       </div>
@@ -108,7 +125,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="container-fluid bg-success text-white p-5">
+      <div id="about-us" className="container-fluid bg-success text-white p-4 pt-5">
         <div className="container guide">
           {/* sell row */}
           <div className="row">
@@ -136,14 +153,14 @@ function Home() {
               </Link>{" "}
             </div>
             <div className="col-md-6">
-              <img className="img-fluid" src={gift} alt="gift" />
+              <img className="img-fluid" src={sell} alt="sell" />
             </div>
           </div>
 
           {/* buy row */}
           <div className="row" style={{ marginTop: 150 }}>
             <div className="col-md-6">
-              <img className="img-fluid" src={gift} alt="gift" />
+              <img className="img-fluid" src={gift2} alt="gift" />
             </div>
 
             <div className="col-md-6">
@@ -200,12 +217,65 @@ function Home() {
               </Link>{" "}
             </div>
             <div className="col-md-6">
-              <img className="img-fluid" src={gift} alt="gift" />
+              <img className="img-fluid" src={gift3} alt="gift" />
+            </div>
+          </div>
+
+          {/* ride sharing row */}
+          <div className="row" style={{ marginTop: 150 }}>
+            <div className="col-md-6">
+              <img className="img-fluid" src={lift} alt="lift" />
+            </div>
+
+            <div className="col-md-6">
+              <h2 className="my-3">Ride Sharing</h2>
+              <p className="para-text">
+                Explore the future of eco-friendly and cost-effective
+                transportation with our RideSharing platform! We offer you a
+                seamless way to share rides with others in your community,
+                reducing your carbon footprint and travel expenses. Whether
+                you're commuting to work, going on a weekend adventure, or
+                attending events, our platform connects you with fellow
+                travelers heading in the same direction. By sharing rides, you
+                not only save money but also contribute to a greener planet.
+                Join our community of eco-conscious travelers and experience a
+                convenient, sustainable, and affordable way to get to your
+                destination. Ride together, save together, and make a positive
+                impact on the environment.
+              </p>
+              <Link
+                className="btn btn-light"
+                style={{ textDecoration: "none" }}
+                to="/ridesharing"
+              >
+                Find Now
+              </Link>{" "}
+            </div>
+          </div>
+
+          {/* rent row */}
+          <div className="row" style={{ marginTop: 150 }}>
+            <div className="col-md-6">
+              <h2 className="my-3">Rent</h2>
+              <p className="para-text">
+                Discover a convenient and flexible way to access items you need for a short period with our Rent platform. We make it easy for you to rent a wide range of products, from tools and electronics to furniture and outdoor gear. Whether you're looking for a one-time use item or want to try out something before committing to a purchase, our platform connects you with people willing to share their belongings. It's a win-win situation where you save money and reduce waste, all while gaining access to quality items. Enjoy the freedom of renting, and experience a more sustainable and cost-effective way to meet your short-term needs.
+              </p>
+              <Link
+                className="btn btn-light mb-3"
+                style={{ textDecoration: "none" }}
+                to="/rent"
+              >
+                Rent Now
+              </Link>{" "}
+            </div>
+
+            <div className="col-md-6">
+              <img className="img-fluid" src={rent} alt="rent" />
             </div>
           </div>
         </div>
       </div>
-      <Contact/>
+      <Contact />
     </div> // closing div tag
   );
 }

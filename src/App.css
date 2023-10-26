@@ -7,13 +7,27 @@ font-family: 'Nanum Pen Script', cursive; */
     padding: 0;
     font-weight: bold;
 }
+.img-fluid{
+    border-radius: 25px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.btn{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 .nav-item{
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 0.9em;
 }
 .home-div{
-    padding-top: 200px;
+    padding-top: 150px;
+}
+.guide h2{
+    color: black;
+    font-weight: bold;
+}
+.guide .btn-light{
+    font-weight: 500;
 }
 h1{
     font-family: 'Montserrat', sans-serif;
@@ -24,9 +38,13 @@ h1{
     text-align: justify;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
+    color: black;
 }
 .navbar{
     padding: 0;
+}
+.bg-success{
+    background-color: lightgreen !important;
 }
 .mb-5 .row{
     margin-left: auto;
