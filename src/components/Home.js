@@ -30,8 +30,8 @@ function Home() {
       <div className="container mt-4 mb-5">
         <h2 className="mb-5 text-center">What do you want to do today?</h2>
         <div className="row">
-          <div className="col-md-4">
-            <div className="card card1" style={{ width: "20rem" }}>
+          <div className="col-md-3">
+            <div className="card card1" style={{ width: "18rem" }}>
               <div className="card-body">
                 <h5 className="card-title">Sell</h5>
                 <p className="card-text">
@@ -49,8 +49,8 @@ function Home() {
             </div>
           </div>
 
-          <div className="col-md-4">
-            <div className="card card1" style={{ width: "20rem" }}>
+          <div className="col-md-3">
+            <div className="card card1" style={{ width: "18rem" }}>
               <div className="card-body">
                 <h5 className="card-title">Buy</h5>
                 <p className="card-text">
@@ -68,8 +68,8 @@ function Home() {
             </div>
           </div>
 
-          <div className="col-md-4">
-            <div className="card card1" style={{ width: "20rem" }}>
+          <div className="col-md-3">
+            <div className="card card1" style={{ width: "18rem" }}>
               <div className="card-body">
                 <h5 className="card-title">Trade/Exchange</h5>
                 <p className="card-text">
@@ -83,6 +83,25 @@ function Home() {
                   Trade Now
                 </Link>{" "}
                 {/* Link to the Sell page */}
+              </div>
+            </div>
+          </div>
+
+          <div className="col-md-3">
+            <div className="card card1" style={{ width: "18rem" }}>
+              <div className="card-body">
+                <h5 className="card-title">Ride Sharing</h5>
+                <p className="card-text">
+                  Need a vehicle sharing partner? Find one here!
+                </p>
+                <Link
+                  className="btn btn-success"
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="/ridesharing"
+                >
+                  Find Now
+                </Link>{" "}
+                {/* Link to the Buy page */}
               </div>
             </div>
           </div>
