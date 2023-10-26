@@ -1,7 +1,11 @@
 import React from "react";
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
-import "../App.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Corrected import
+import { faShoppingCart, faUser, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+
+import "../App.css";
+
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
@@ -16,7 +20,9 @@ const LogoutButton = () => {
   return (
     <Link className="nav-link" to="/" onClick={() => logout({ 
 // @ts-ignore
-    returnTo: window.location.origin })}>Log Out</Link>
+    returnTo: window.location.origin })}>
+      <FontAwesomeIcon className="mx-1" icon={faSignOutAlt} />Logout
+    </Link>
   );
 };
 
@@ -44,25 +50,32 @@ const Navbar = () => {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to="/">Home</Link>
-            </li>
-            <li className="nav-item">
               <Link className="nav-link" to="/buy">Buy</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/sell">Sell</Link>
+              <Link className="nav-link" to="/sell">Post</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/trade">Trade</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contact">Contact</Link>
+              <Link className="nav-link" to="/rent">Rent</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/cart">Cart</Link>
+              <Link className="nav-link" to="/ridesharing">RideSharing</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/cart" className="nav-link">
+                <FontAwesomeIcon className="mx-1" icon={faShoppingCart} />Cart
+              </Link>
             </li>
             <li className="nav-item d-flex">
-              {isAuthenticated && <p className="nav-link m-0">{user?.nickname || user?.name || 'User'}</p>}
+              {isAuthenticated && (
+                <Link className="nav-link m-0">
+                  <FontAwesomeIcon className="mx-1" icon={faUser} />
+                  {user?.nickname || user?.name || 'User'}
+                </Link>
+              )}
             </li>
             {isAuthenticated ? (
               <li className="nav-item">

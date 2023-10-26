@@ -77,11 +77,13 @@ function Cart() {
         ))}
       </div>
       {/* <button className="btn btn-primary">Checkout</button> */}
+      <div className="text-center">
       <Link
                   className="btn btn-primary"
                   style={{ color: "white", textDecoration: "none" }}
                   to="/checkout"
                 >Checkout</Link>
+      </div>
     </div>
   );
 }

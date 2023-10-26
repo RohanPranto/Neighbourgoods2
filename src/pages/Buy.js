@@ -52,7 +52,7 @@ function Buy({ setCartItems }) {
         <div className="row row-cols-2 row-cols-md-2 row-cols-lg-4">
           {products.map((product) => (
             <div key={product.id} className="col mb-4">
-              <div className="card" style={{ width: '80%', height: "100%" }}>
+              <div className="card card1" style={{ width: '80%', height: "100%" }}>
                 <img
                   src={product.imageUrl}
                   className="card-img-top"

@@ -12,6 +12,9 @@ font-family: 'Nanum Pen Script', cursive; */
     font-weight: 600;
     font-size: 0.9em;
 }
+.home-div{
+    padding-top: 200px;
+}
 h1{
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -72,13 +75,24 @@ input , textarea, select{
     box-shadow: inset 5px 5px 17px #c8c8c8,
               inset -5px -5px 17px #ffffff;
   }
-  
+  /* App.css or your custom CSS file */
+.navbar-collapse-transition {
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+  }
+.card1:hover{
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}  
 /* Define styles for screens with a maximum width of 767px (typical mobile screens) */
 @media (max-width: 767px) {
     .card-title {
       font-size: 1.2rem; /* Adjust the font size for mobile screens */
     }
-  
+    .home-div{
+        padding-top: 20px;
+    }
     .card-text {
       font-size: 1rem; /* Adjust the font size for mobile screens */
     }

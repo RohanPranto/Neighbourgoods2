@@ -14,6 +14,9 @@ import Contact from "./components/Contact";
 import ProductDetails from "./components/ProductDetails";
 import { getDocs } from "@firebase/firestore";
 import Checkout from "./pages/Checkout";
+import RideSharing from "./components/RideSharing";
+import RideDetails from "./components/RideDetails";
+import Rent from "./pages/Rent";
 
 function App() {
   const { isAuthenticated, user } = useAuth0();
@@ -52,13 +55,16 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sell" element={<Sell />} />
-          <Route path="/buy" element={<Buy />} />
+          <Route path="/buy" element={<Buy/>} />
           <Route path="/trade" element={<Trade />} />
           <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/rent" element={<Rent />} />
           <Route path="/product/:tradeId" element={<ProductDetails />} />
-          <Route path="/checkout" element={<Checkout/>}/>
-
+          <Route path="/product/:rentId" element={<ProductDetails />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/ridesharing" element={<RideSharing />} />
+          <Route path="/ridedetails/:id" element={<RideDetails />} />
           {/* Add more routes for other pages */}
         </Routes>
       </Router>

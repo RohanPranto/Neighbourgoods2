@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import gift from "../assets/gift2.jpg";
 import Sell from "../pages/Sell";
 import Contact from "./Contact";
+import "../App.css"
 function Home() {
   return (
     <div>
       <div className="container">
         <div className="row">
-          <div className="col-md-6" style={{ paddingTop: 200 }}>
+          <div className="col-md-6 home-div" >
             <h1>Get Your Goods!</h1>
             <p className="para-text">
               Discover a new way to trade items that matter to you!
@@ -30,7 +31,7 @@ function Home() {
         <h2 className="mb-5 text-center">What do you want to do today?</h2>
         <div className="row">
           <div className="col-md-4">
-            <div className="card" style={{ width: "18rem" }}>
+            <div className="card card1" style={{ width: "20rem" }}>
               <div className="card-body">
                 <h5 className="card-title">Sell</h5>
                 <p className="card-text">
@@ -49,7 +50,7 @@ function Home() {
           </div>
 
           <div className="col-md-4">
-            <div className="card" style={{ width: "18rem" }}>
+            <div className="card card1" style={{ width: "20rem" }}>
               <div className="card-body">
                 <h5 className="card-title">Buy</h5>
                 <p className="card-text">
@@ -68,7 +69,7 @@ function Home() {
           </div>
 
           <div className="col-md-4">
-            <div className="card" style={{ width: "18rem" }}>
+            <div className="card card1" style={{ width: "20rem" }}>
               <div className="card-body">
                 <h5 className="card-title">Trade/Exchange</h5>
                 <p className="card-text">
@@ -108,7 +109,7 @@ function Home() {
                 cash while also decluttering your home!
               </p>
               <Link
-                className="btn btn-light"
+                className="btn btn-light my-3"
                 style={{ textDecoration: "none" }}
                 to="/sell"
               >
@@ -127,7 +128,7 @@ function Home() {
             </div>
 
             <div className="col-md-6">
-              <h2>Buy</h2>
+              <h2 className="my-3">Buy</h2>
               <p className="para-text">
                 Discover the chance to obtain essential items at a fraction of
                 their original cost! Our platform presents you with the
@@ -172,7 +173,7 @@ function Home() {
                 purpose.
               </p>
               <Link
-                className="btn btn-light"
+                className="my-3 btn btn-light"
                 style={{ textDecoration: "none" }}
                 to="/trade"
               >
