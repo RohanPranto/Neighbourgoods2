@@ -39,7 +39,7 @@ function Home() {
             <a className="btn btn-success" href="#about-us">Learn More</a>
           </div>
           <div className="col-md-6">
-            <img className="img-fluid" src={gift2} alt="gift" />
+            <img className="img-fluid" style={{boxShadow:"none"}} src={gift2} alt="gift" />
           </div>
         </div>
       </div>
