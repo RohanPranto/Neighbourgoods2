@@ -3,6 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { collection, query, getDocs, addDoc } from 'firebase/firestore';
 import { cartCollectionRef, firestore } from '../firebase'; // Import the Firestore cart collection reference
 import "../App.css"
+import { Link } from 'react-router-dom';
 function Buy({ setCartItems }) {
   const { user } = useAuth0(); // Import 'user' from useAuth0
   const [products, setProducts] = React.useState([]);
@@ -75,12 +76,7 @@ function Buy({ setCartItems }) {
                     Add to Cart
                   </button> */}
                   <div className="button-div">
-                    <button
-                      className="btn btn-success btn-sm" 
-                      onClick={() => alert('Buy Now clicked for ' + product.name)}
-                    >
-                      Buy Now
-                    </button>
+                    <Link className="btn btn-success btn-sm" to="/checkout">Buy Now</Link>
                     <button
                       className="btn btn-success btn-sm"
                       onClick={() => addToCart(product)}
