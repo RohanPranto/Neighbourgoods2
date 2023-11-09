@@ -64,7 +64,6 @@ function Cart() {
               <div className="card-body">
                 <h3 className="card-title">{item.name}</h3>
                 <p className="card-text">Rs {item.price.toFixed(2)}</p>
-                <p className="card-text">Quantity: {item.quantity}</p>
                 <button
                   onClick={() => removeFromCart(item.id.toString())}
                   className="btn btn-danger"
