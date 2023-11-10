@@ -49,7 +49,7 @@ function Trade() {
                     <h5 className="card-title">{item.name}</h5>
                     <p className="card-text">{item.location}</p>
                     <p className="card-text">Description: {item.description}</p>
-                    <p className="card-text">Seller's Name: {item.sellerNm}</p> {/* Add the seller's name here */}
+                    <p className="card-text">Seller's Name: {item.sellerNm}</p> 
                     <p className="card-text">Contact: {item.contactNumber}</p>
                     <p className="card-text">Type: {item.type}</p>
                     {/* Add a "Learn More" button that links to the product details page */}
