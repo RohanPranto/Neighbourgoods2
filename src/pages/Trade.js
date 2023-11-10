@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { firestore } from '../firebase';
 import { Link } from 'react-router-dom';
-
+import '../App.css';
 function Trade() {
   const [tradeItems, setTradeItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -43,7 +43,7 @@ function Trade() {
           <div className="my-3 row row-cols-2 row-cols-md-2 row-cols-lg-5">
             {tradeItems.map((item) => (
               <div key={item.id} className="col mb-4">
-                <div className="card card1">
+                <div className="card card1 trade-card">
                   <img src={item.imageUrl} className="card-img-top" style={{ height: "200px" }} alt={item.name} />
                   <div className="card-body">
                     <h5 className="card-title">{item.name}</h5>

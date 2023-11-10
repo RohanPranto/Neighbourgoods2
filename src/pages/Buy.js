@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useAuth0 } from '@auth0/auth0-react';
 import { collection, query, getDocs, addDoc } from 'firebase/firestore';
-import { cartCollectionRef, firestore } from '../firebase'; // Import the Firestore cart collection reference
+import { cartCollectionRef, firestore } from '../firebase'; 
 import "../App.css"
 import { Link } from 'react-router-dom';
 function Buy({ setCartItems }) {
-  const { user } = useAuth0(); // Import 'user' from useAuth0
+  const { user } = useAuth0(); // Import user from useAuth0
   const [products, setProducts] = React.useState([]);
 
   // Function to fetch products from Firestore
