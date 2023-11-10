@@ -63,18 +63,7 @@ function Buy({ setCartItems }) {
                   <h5 className="card-title">{product.name}</h5>
                   <p className="card-text">{product.location}</p>
                   <p className="card-text">Rs {product.price.toFixed(0)}</p>
-                  {/* <button
-                    className="btn btn-success btn-sm" style={{ marginRight: '10px' }}
-                    onClick={() => alert('Buy Now clicked for ' + product.name)}
-                  >
-                    Buy Now
-                  </button>
-                  <button
-                    className="btn btn-success btn-sm"
-                    onClick={() => addToCart(product)}
-                  >
-                    Add to Cart
-                  </button> */}
+                  
                   <div className="button-div">
                     <Link className="btn btn-success btn-sm" to="/checkout">Buy Now</Link>
                     <button

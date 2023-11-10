@@ -268,7 +268,6 @@ function Home() {
           </div>
         </div>
       </div>
-      <Contact />
     </div> // closing div tag
   );
 }

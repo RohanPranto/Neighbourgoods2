@@ -1,9 +1,9 @@
 import React from 'react';
-
+import "../App.css";
 function Contact() {
   return (
     <div>
-      <div className="container" style={{ marginTop: 40 }}>
+      <div className="container contact-container" >
         <h1 className="mb-4">Contact Us</h1>
         <div className="row">
           <div className="col-md-6">
@@ -27,7 +27,7 @@ function Contact() {
             </p>
             <p>
               <a style={{textDecoration: "none"}} href="https://www.linkedin.com/in/example" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-whatsapp-square"></i> +91 1234567890
+                <i className="fab fa-whatsapp-square"></i> +91-6291637232
               </a>
             </p>
           </div>

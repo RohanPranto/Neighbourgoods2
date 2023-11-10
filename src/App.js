@@ -54,6 +54,10 @@ function App() {
           <Route path="/ridesharing" element={<RideSharing />} />
           <Route path="/ridedetails/:id" element={<RideDetails />} />
         </Routes>
+
+        <div style={{backgroundColor:"#90ee90" , paddingTop:"20px" , paddingBottom:"20px"}}>
+        <Contact />
+        </div>
       </Router>
     </div>
   );
