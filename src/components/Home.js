@@ -15,12 +15,6 @@ function Home() {
           <div className="col-md-6 home-div">
             <h1>Get Your Goods!</h1>
             <p className="para-text">
-              {/* Discover a new way to trade items that matter to you!
-              NeighbourGoods is the ultimate online destination for local
-              trading and exchanging within your neighborhood. Say goodbye to
-              unused items cluttering your space , you can give them new life by
-              swapping with items you need or desire. Join us today and become a
-              part of a vibrant and sustainable local exchange network! */}
               Discover a diverse world of possibilities with NeighbourGoods,
                 your local community marketplace. Whether you're looking to <strong>BUY </strong>
                 essential items, <strong>SELL </strong> pre-loved treasures, <strong>RENT</strong> temporarily, or
@@ -35,11 +29,10 @@ function Home() {
                 network. Experience a new way of living, all within your
                 neighborhood!
             </p>
-            {/* <Link to="about-us" className="btn btn-success">Learn More</Link> */}
             <a className="btn btn-success" href="#about-us">Learn More</a>
           </div>
           <div className="col-md-6">
-            <img className="img-fluid" style={{boxShadow:"none"}} src={gift2} alt="gift" />
+            <img className="img-fluid home-img" style={{boxShadow:"none" }} src={gift2} alt="gift" />
           </div>
         </div>
       </div>

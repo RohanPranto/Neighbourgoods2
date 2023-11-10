@@ -17,7 +17,7 @@ function Sell() {
   const [itemUsedForHowLong, setItemUsedForHowLong] = useState("");
   const [productCondition, setProductCondition] = useState("");
 
-  // Additional state for Rent
+  //state for Rent
   const [rentDuration, setRentDuration] = useState("1m");
   const [rentCost, setRentCost] = useState("");
 
@@ -37,8 +37,8 @@ function Sell() {
       exchangeOrRent,
       itemUsedForHowLong,
       productCondition,
-      rentDuration, // Include rent duration
-      rentCost, // Include rent cost
+      rentDuration, 
+      rentCost,
     };
 
     try {

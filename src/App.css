@@ -111,6 +111,9 @@ input , textarea, select{
     .home-div{
         padding-top: 20px;
     }
+    .home-img{
+        margin-top: 15px;
+    }
     .card-text {
       font-size: 1rem; /* Adjust the font size for mobile screens */
     }
