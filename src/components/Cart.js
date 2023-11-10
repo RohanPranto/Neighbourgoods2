@@ -51,10 +51,10 @@ function Cart() {
   return (
     <div className="container">
       <h1>Your Cart</h1>
-      <div className="row row-cols-1 row-cols-md-6">
+      <div className="row row-cols-2 row-cols-md-6">
         {cartItems.map((item) => (
           <div key={item.id} className="col mb-4">
-            <div className="card" style={{ maxWidth: "200px" }}>
+            <div className="card" style={{ maxWidth: "200px", height:"100%" }}>
               <img
                 src={item.imageUrl}
                 className="card-img-top"
@@ -76,9 +76,9 @@ function Cart() {
         ))}
       </div>
       {/* <button className="btn btn-primary">Checkout</button> */}
-      <div className="text-center">
+      <div className="text-center mb-4 d-grid gap-2">
       <Link
-                  className="btn btn-primary"
+                  className="btn btn-success"
                   style={{ color: "white", textDecoration: "none" }}
                   to="/checkout"
                 >Checkout</Link>

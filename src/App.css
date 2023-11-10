@@ -47,6 +47,7 @@ h1{
     margin-left: auto;
     margin-right: auto;
 }
+
 .contact-container a{
     background-color: white;
     padding: 2px 10px;
@@ -151,6 +152,9 @@ input , textarea, select{
         display: inline;
         justify-content: center;
         margin-bottom: 10px;
+    }
+    .textc{
+        text-align: center;
     }
   }
   
