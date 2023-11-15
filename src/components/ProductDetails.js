@@ -32,15 +32,14 @@ function ProductDetails() {
 
   return (
     <div className="container my-3">
-      <div className="row">
+    <h1 className="my-4">{trade.name}</h1>
+      <div className="row mb-5">
         <div className="col-md-4 d-flex justify-content-center align-items-center">
           <img src={trade.imageUrl} className="img-fluid" alt={trade.name} />
         </div>
         <div className="col-md-8">
-          <h1 className="my-4">{trade.name}</h1>
-          <div className="card">
+          <div className="card" style={{height:"100%"}}>
             <div className="card-body">
-              <h5 className="card-title">{trade.name}</h5>
               <p className="card-text">Location: {trade.location}</p>
               <p className="card-text">Description: {trade.description}</p>
               <p className="card-text">Contact: {trade.contactNumber}</p>
@@ -57,7 +56,7 @@ function ProductDetails() {
             </div>
           </div>
         </div>
-      </div>
+      </div> <br /> <br />
     </div>
   );
 }

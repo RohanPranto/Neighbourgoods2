@@ -1,38 +1,34 @@
 import React from 'react';
-import "../App.css";
+import butterfly from '../assets/butterfly.png';
+import apple from '../assets/apple.png';
+import playstore from '../assets/playstore.png';
+import "../assets/Contact.css"
 function Contact() {
   return (
     <div>
-      <div className="container contact-container" >
-        <h1 className="mb-4">Contact Us</h1>
+      <footer>
+
+        <div className="container" style={{paddingTop:25,paddingBottom:25}}>
         <div className="row">
-          <div className="col-md-6">
-            <h3>Email:</h3>
-            <p>
-              <a style={{textDecoration: "none"}} href="mailto:contact@example.com">Neighbour@goods.com</a>
-            </p>
-            
+          <div className="col-6 col-md">
+          <p>Download app From</p>
+          <div className="icons" >
+          <img src={playstore} alt="playstore" className="img-fluid" style={{borderRadius:0, boxShadow:"none", marginRight:20}}/>
+          <img src={apple} alt="apple" className="img-fluid" style={{borderRadius:0, boxShadow:"none"}}/>
           </div>
-          <div  className="col-md-6">
-            <h3>Social Media:</h3>
-            <p>
-              <a style={{textDecoration: "none"}} href="https://twitter.com/example" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-twitter"></i> Neighbourgoods
-              </a>
-            </p>
-            <p>
-              <a style={{textDecoration: "none"}} href="https://www.facebook.com/example" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-facebook"></i> Neighbourgoods
-              </a>
-            </p>
-            <p>
-              <a style={{textDecoration: "none"}} href="https://www.linkedin.com/in/example" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-whatsapp-square"></i> +91-6291637232
-              </a>
-            </p>
           </div>
+          
+          <div className="col-6 col-md">
+          <img className='img-fluid' src={butterfly} alt="" />
+          </div>
+          
         </div>
-      </div>
+        </div>
+        <div className='green'>
+        <p style={{marginBottom:0}} className="float-end"><a href="#">Back to top</a></p>
+        <p style={{marginBottom:0}}>© 2023 Neighbourgoods · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+        </div>
+      </footer>
     </div>
   );
 }

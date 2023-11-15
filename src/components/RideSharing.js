@@ -201,6 +201,7 @@ const RideSharingList = () => {
 
   return (
     <div className="container">
+      
       <h2>Existing Ride Listings</h2>
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
         {rideListings.map((listing) => (
@@ -221,7 +222,12 @@ const RideSharingList = () => {
           </div>
         ))}
       </div>
-    </div>
+
+      <div className="row">
+        <div className="col-md-6">Hi baby</div>
+        <div className="col-md-6">hihi</div>
+      </div>
+    </div> //closing div
   );
 };
 

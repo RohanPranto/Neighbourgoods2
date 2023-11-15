@@ -17,6 +17,7 @@ import Checkout from "./pages/Checkout";
 import RideSharing from "./components/RideSharing";
 import RideDetails from "./components/RideDetails";
 import Rent from "./pages/Rent";
+import About from "./pages/About";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -37,27 +38,25 @@ function App() {
   }, [isAuthenticated]);
 
   return (
-    <div>
+    <div className="app">
       <Router>
-        <Navbar />
+        <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sell" element={<Sell />} />
+          <Route path="/about" element={<About/>} />
           <Route path="/buy" element={<Buy />} />
-          <Route path="/trade" element={<Trade />} />
           <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/rent" element={<Rent />} />
+          <Route path="/trade" element={<Trade />} />
           <Route path="/product/:tradeId" element={<ProductDetails />} />
           <Route path="/product/:rentId" element={<ProductDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/ridesharing" element={<RideSharing />} />
           <Route path="/ridedetails/:id" element={<RideDetails />} />
         </Routes>
-
-        <div style={{backgroundColor:"#90ee90" , paddingTop:"20px" , paddingBottom:"20px"}}>
         <Contact />
-        </div>
       </Router>
     </div>
   );
