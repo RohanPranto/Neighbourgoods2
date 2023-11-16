@@ -191,9 +191,9 @@ function Home() {
             {/* Card 1 */}
             <div className="col-lg-4 col-md-6 mb-4">
               <Link to="/buy" style={{textDecoration:"none"}}>
-              <div className="card" style={{height:"95%" , width:"90%"}}>
+              <div className="card" style={{height:"95%" , width:"90%" , padding:15}}>
                 <img src={card1} className="card-img-top" alt="Card 1" />
-                <p className="mt-3 card-title text-center">Buy/Sell pre-loved goods</p>
+                <p className="p-3  card-title text-center">Buy/Sell pre-loved goods</p>
               </div>
               </Link>
             </div>
@@ -201,9 +201,9 @@ function Home() {
             {/* Card 2 */}
             <div className="col-lg-4 col-md-6 mb-4">
               <Link  to="/ridesharing" style={{textDecoration:"none"}}>
-              <div className="card" style={{height:"95%" , width:"90%"}}>
+              <div className="card" style={{height:"95%" , width:"90%", padding:15}}>
                 <img src={card2} className="card-img-top" alt="Card 2" />
-                <p className="mt-3 card-title text-center">Share a ride</p>
+                <p className="p-3  card-title text-center">Share a ride</p>
               </div>
               </Link>
             </div>
@@ -211,9 +211,9 @@ function Home() {
             {/* Card 3 */}
             <div className="col-lg-4 col-md-6 mb-4">
               <Link  to="/trade" style={{textDecoration:"none"}}>
-              <div className="card" style={{height:"95%" , width:"90%"}}>
+              <div className="card" style={{height:"95%" , width:"90%", padding:15}}>
                 <img src={card3} className="card-img-top" alt="Card 3" />
-                <p className="mt-3 card-title text-center">Trade / Rent</p>
+                <p className="p-3  card-title text-center">Trade / Rent</p>
               </div>
               </Link>
             </div>
