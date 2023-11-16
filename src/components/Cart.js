@@ -54,16 +54,15 @@ function Cart() {
       <div className="row row-cols-2 row-cols-md-6">
         {cartItems.map((item) => (
           <div key={item.id} className="col mb-4">
-            <div className="card" style={{ maxWidth: "200px", height:"100%" }}>
+            <div className="card card1" style={{ textAlign: "center" }}>
               <img
                 src={item.imageUrl}
                 className="card-img-top"
                 alt={item.name}
-                style={{ height: "auto", width: "100%", maxWidth: "200px" }}
               />
               <div className="card-body">
                 <h3 className="card-title">{item.name}</h3>
-                <p className="card-text">Rs {item.price.toFixed(2)}</p>
+                <p className="card-text mb-1">Rs {item.price.toFixed(2)}</p>
                 <button
                   onClick={() => removeFromCart(item.id.toString())}
                   className="btn btn-danger"
@@ -75,13 +74,14 @@ function Cart() {
           </div>
         ))}
       </div>
-      {/* <button className="btn btn-primary">Checkout</button> */}
       <div className="text-center mb-4 d-grid gap-2">
-      <Link
-                  className="btn btn-success"
-                  style={{ color: "white", textDecoration: "none" }}
-                  to="/checkout"
-                >Checkout</Link>
+        <Link
+          className="btn btn-success"
+          style={{ color: "white", textDecoration: "none" }}
+          to="/checkout"
+        >
+          Checkout
+        </Link>
       </div>
     </div>
   );
