@@ -302,11 +302,11 @@ function Sell() {
               {renderTradeFields()}
               {renderRentFields()}
               {loading ? (
-                <button type="submit" className="btn btn-success" disabled>
+                <button type="submit" className="butn" disabled>
                   Enlisting...
                 </button>
               ) : (
-                <button type="submit" className="btn btn-success">
+                <button type="submit" className="butn">
                   Enlist Product
                 </button>
               )}

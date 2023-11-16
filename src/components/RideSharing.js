@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { firestore } from "../firebase";
 import { Link } from "react-router-dom";
-
+import "../assets/Home.css";
 const RideSharingForm = () => {
   const { isAuthenticated, user } = useAuth0();
   const [name, setName] = useState("");
@@ -63,7 +63,7 @@ const RideSharingForm = () => {
 
   return (
     <div className="container">
-      <h2 className="mt-2">Post a Ride</h2>
+      <h1 className="mt-2">Post a Ride</h1>
       {isAuthenticated ? (
         <form>
           <div className="form-group my-4">
@@ -92,6 +92,7 @@ const RideSharingForm = () => {
             <label htmlFor="gender">Gender</label>
             <select
               id="gender"
+              style={{ boxShadow: "none", border: "2px solid #D3D3D3" }}
               className="form-select"
               value={gender}
               onChange={(e) => setGender(e.target.value)}
@@ -160,13 +161,15 @@ const RideSharingForm = () => {
             />
           </div>
 
-          <button
-            type="button"
-            className="btn btn-primary mb-5 mt-3"
-            onClick={handlePostRide}
-          >
-            Post
-          </button>
+          <div className="d-grid gap-2">
+            <button
+              className="butn mb-4"
+              onClick={handlePostRide}
+              type="button"
+            >
+              Post
+            </button>
+          </div>
         </form>
       ) : (
         <p>Please log in to post a ride-sharing listing.</p>
@@ -200,42 +203,46 @@ const RideSharingList = () => {
   }, []);
 
   return (
-    <div className="container">
-      
-      <h2>Existing Ride Listings</h2>
-      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+    <div className="container existing-ride">
+      <h1>Existing Rides</h1>
+      <div className="row row-cols-1">
         {rideListings.map((listing) => (
           <div key={listing.id} className="col mb-4">
-            <Link style={{textDecoration:"none"}} to={`/ridedetails/${listing.id}`}>
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">
-                  {listing.startingPoint} to {listing.endPoint}
-                </h5>
-                <p className="card-text">
-                  Date: {listing.date} - {listing.passengerCount} passengers
-                </p>
-                {/* Add other information here (name, age, gender, contactNumber) */}
+            <Link
+              style={{ textDecoration: "none" }}
+              to={`/ridedetails/${listing.id}`}
+            >
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">
+                    {listing.startingPoint} to {listing.endPoint}
+                  </h5>
+                  <p className="card-text">
+                    Date: {listing.date} - {listing.passengerCount} passengers
+                  </p>
+                  {/* Add other information here (name, age, gender, contactNumber) */}
+                </div>
               </div>
-            </div>
             </Link>
           </div>
         ))}
       </div>
-
-      <div className="row">
-        <div className="col-md-6">Hi baby</div>
-        <div className="col-md-6">hihi</div>
-      </div>
-    </div> //closing div
+    </div>
+    //closing div
   );
 };
 
 const RideSharing = () => {
   return (
-    <div>
-      <RideSharingForm />
-      <RideSharingList />
+    <div className="container">
+      <div className="row">
+        <div className="col-md-6">
+          <RideSharingForm />
+        </div>
+        <div className="col-md-6">
+          <RideSharingList />
+        </div>
+      </div>
     </div>
   );
 };
