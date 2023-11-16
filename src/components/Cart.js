@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, deleteDoc, doc, collection, query, where } from "firebase/firestore";
+import { getDocs, deleteDoc, doc,  query, where } from "firebase/firestore";
 import { cartCollectionRef } from "../firebase";
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from "react-router-dom";
 
-interface CartItem {
-  id: string;
-  image: string;
-  name: string;
-  price: number;
-  quantity: number;
-  userId: string; // Add a userId field to associate the item with the user
-}
+// interface CartItem {
+//   id: string;
+//   image: string;
+//   name: string;
+//   price: number;
+//   quantity: number;
+//   userId: string; // Add a userId field to associate the item with the user
+// }
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);

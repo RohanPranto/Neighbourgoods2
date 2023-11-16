@@ -3,7 +3,9 @@ import { collection, addDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
 import "../App.css";
 import girl from "../assets/girl.png";
+import { useAuth0 } from "@auth0/auth0-react";
 function Sell() {
+  const { isAuthenticated } = useAuth0();
   const [loading, setLoading] = useState(false);
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
@@ -23,6 +25,12 @@ function Sell() {
   const [rentCost, setRentCost] = useState("");
 
   const handleProductSubmit = async (e) => {
+
+    if (!isAuthenticated) {
+      // Display a message or a login prompt if the user is not authenticated
+      return;
+    }
+
     e.preventDefault();
     setLoading(true);
     const product = {
@@ -178,7 +186,8 @@ function Sell() {
 
   return (
     <div>
-      <div className="container my-3">
+      {isAuthenticated ? (
+        <div className="container my-3">
         <h1 className="mb-4">Sell / Trade / Rent</h1>
         <div className="row">
           <div className="col-md-6 mb-5">
@@ -314,6 +323,9 @@ function Sell() {
           </div>
         </div>
       </div>
+      ) :(
+        <h1 style={{paddingLeft:20}}>Please login to continue</h1>
+      )}
     </div>
   );
 }

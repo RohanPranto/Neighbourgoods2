@@ -17,8 +17,9 @@
 }
 h1{
     font-family: 'Cormorant Upright', serif;
-    font-size: 55px;
+    font-size: 50px;
     font-weight: 500;
+    line-height:70px;
     color: #07410c;
 }
 .yellow-text{
