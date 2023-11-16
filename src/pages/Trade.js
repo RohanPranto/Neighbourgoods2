@@ -142,10 +142,19 @@ function Trade() {
                     <p className="desc-text card-text">
                       Description: {item.description}
                     </p>
-                    <p className="card-text">Type: {item.type}</p>
-                    <p className="card-text">
-                      {item.type}: {item.rentCost} / Month
-                    </p>
+
+                    {/* Conditionally render based on currentType */}
+                    {currentType === "trade" && (
+                      <p className="card-text">Exchange For: {item.exchangeFor}</p>
+                    )}
+
+                    {currentType === "rent" && (
+                      <div>
+                        <p className="card-text">
+                          {item.type}: {item.rentCost} / Month
+                        </p>
+                      </div>
+                    )}
                     <Link
                       to={`/product/${item.id}`}
                       className="btn btn-success"
