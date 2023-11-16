@@ -4,19 +4,18 @@ import { firestore } from "../firebase";
 import { Link } from "react-router-dom";
 import baby from "../assets/baby.png";
 import "../assets/Trade.css";
+
 function Trade() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentType, setCurrentType] = useState("trade");
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(12);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = items.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct
-  );
+  const currentItems = items.slice(indexOfFirstProduct, indexOfLastProduct);
 
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(items.length / productsPerPage); i++) {
@@ -45,7 +44,23 @@ function Trade() {
   useEffect(() => {
     fetchItems(currentType);
   }, [currentType]);
- const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+    setCurrentPage(1); // Reset page number when performing a new search
+  };
+
+  const filteredItems = items.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const currentFilteredItems = filteredItems.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
   return (
     <div>
       <div className="container tc2">
@@ -73,9 +88,21 @@ function Trade() {
         <br />
         <br />
         <h3 className="sub-header mb-3">What are you looking for?</h3>
+        <div className="row mb-3">
+          <div className="col-md-12">
+            <input
+              type="text"
+              className="form-control f2"
+              placeholder="Search by keyword..."
+              value={searchTerm}
+              onChange={handleSearch}
+            />
+          </div>
+        </div>
+
         <div className="text-center">
           <button
-          style={{marginRight: "10px"}}
+            style={{ marginRight: "10px" }}
             className={`butn ${
               currentType === "trade" ? "butn" : "button1"
             }`}
@@ -83,9 +110,9 @@ function Trade() {
           >
             Trade
           </button>
-          
+
           <button
-          style={{marginLeft: "10px"}}
+            style={{ marginLeft: "10px" }}
             className={`butn ${
               currentType === "rent" ? "butn" : "button1"
             }`}
@@ -94,12 +121,12 @@ function Trade() {
             Rent
           </button>
         </div>
-        {/* ... existing code ... */}
+
         {loading ? (
           <p>Loading...</p>
         ) : (
           <div className="my-3 row row-cols-2 row-cols-md-2 row-cols-lg-4">
-            {items.map((item) => (
+            {currentFilteredItems.map((item) => (
               <div key={item.id} className="col mb-4">
                 <div className="card card1 trade-card">
                   <img
@@ -109,11 +136,17 @@ function Trade() {
                     alt={item.name}
                   />
                   <div className="card-body">
-                    <h5 className="card-title"><strong>{item.name}</strong></h5>
+                    <h5 className="card-title">
+                      <strong>{item.name}</strong>
+                    </h5>
                     <p className="card-text">{item.location}</p>
-                    <p className="desc-text card-text">Description: {item.description}</p>
+                    <p className="desc-text card-text">
+                      Description: {item.description}
+                    </p>
                     <p className="card-text">Type: {item.type}</p>
-                    <p className="card-text">{item.type}: {item.rentCost} / Month</p>
+                    <p className="card-text">
+                      {item.type}: {item.rentCost} / Month
+                    </p>
                     <Link
                       to={`/product/${item.id}`}
                       className="btn btn-success"
@@ -124,10 +157,10 @@ function Trade() {
                 </div>
               </div>
             ))}
-          </div> 
+          </div>
         )}
 
-<div className="text-center my-3 mt-5 mb-5">
+        <div className="text-center my-3 mt-5 mb-5">
           <button className="butn mr-3" onClick={() => paginate(1)}>
             Previous
           </button>

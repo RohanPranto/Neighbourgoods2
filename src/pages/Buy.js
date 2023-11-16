@@ -8,19 +8,30 @@ import { Link } from "react-router-dom";
 
 function Buy({ setCartItems }) {
   const { user } = useAuth0();
-  const [products, setProducts] = React.useState([]);
+  const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(12);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+    setCurrentPage(1); // Reset page number when performing a new search
+  };
+
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const currentProducts = filteredProducts.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
 
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(products.length / productsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(filteredProducts.length / productsPerPage); i++) {
     pageNumbers.push(i);
   }
 
@@ -78,7 +89,7 @@ function Buy({ setCartItems }) {
             </p>{" "}
             <br />
             <Link className="butn" to="/sell">
-              List an Item <i className='bx bx-up-arrow-alt' ></i>
+              List an Item <i className="bx bx-up-arrow-alt"></i>
             </Link>
           </div>
 
@@ -88,6 +99,18 @@ function Buy({ setCartItems }) {
         </div>
 
         <h3 className="sub-header mb-4">What are you looking for?</h3>
+        <div className="row mb-3">
+          <div className="col-md-12">
+            <input
+              type="text"
+              className="form-control f2"
+              placeholder="Search by keyword..."
+              value={searchTerm}
+              onChange={handleSearch}
+            />
+          </div>
+        </div>
+
         <div className="row row-cols-2 row-cols-md-2 row-cols-lg-4">
           {currentProducts.map((product) => (
             <div key={product.id} className="col mb-4">
@@ -98,7 +121,9 @@ function Buy({ setCartItems }) {
                   alt={product.name}
                 />
                 <div className="card-body">
-                  <h5 className="card-title"><strong>{product.name}</strong></h5>
+                  <h5 className="card-title">
+                    <strong>{product.name}</strong>
+                  </h5>
                   <p className="card-text">{product.location}</p>
                   <p className="card-text">Rs {product.price.toFixed(0)}</p>
 

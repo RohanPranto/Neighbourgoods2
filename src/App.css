@@ -69,7 +69,26 @@ body{
     border-radius: 5px;
     margin-top: 20px;
 }
-
+.form-control{
+    border:2px solid #D7E5BE;
+    padding: 8px;
+    margin-right: auto;
+    margin-left: auto;
+    color: black;
+}
+.form-control::placeholder {
+    color: #a5b91d;
+  }
+  .f2{
+    max-width: 65%;
+  }
+  textarea{
+    border:2px solid #D7E5BE;
+    padding: 8px;
+    margin-right: auto;
+    margin-left: auto;
+    color: #D7E5BE;
+  }
 .guide h2 {
     color: black;
     font-weight: bold;
