@@ -51,7 +51,7 @@ function App() {
           <Route path="/rent" element={<Rent />} />
           <Route path="/trade" element={<Trade />} />
           <Route path="/product/:tradeId" element={<ProductDetails />} />
-          <Route path="/product/:rentId" element={<ProductDetails />} />
+          <Route path="/rent/:rentId" element={<ProductDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/ridesharing" element={<RideSharing />} />
           <Route path="/ridedetails/:id" element={<RideDetails />} />

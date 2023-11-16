@@ -132,7 +132,6 @@ function Trade() {
                   <img
                     src={item.imageUrl}
                     className="card-img-top"
-                    style={{ height: "200px" }}
                     alt={item.name}
                   />
                   <div className="card-body">

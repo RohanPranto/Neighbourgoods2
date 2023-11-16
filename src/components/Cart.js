@@ -54,15 +54,15 @@ function Cart() {
       <div className="row row-cols-2 row-cols-md-6">
         {cartItems.map((item) => (
           <div key={item.id} className="col mb-4">
-            <div className="card card1" style={{ textAlign: "center" }}>
+            <div className="card card1" style={{ textAlign: "left" }}>
               <img
                 src={item.imageUrl}
                 className="card-img-top"
                 alt={item.name}
               />
-              <div className="card-body">
-                <h3 className="card-title">{item.name}</h3>
-                <p className="card-text mb-1">Rs {item.price.toFixed(2)}</p>
+              <div className="card-body" style={{textAlign:"left" , padding:10}}>
+                <h3 className="card-title" style={{textAlign:"left"}}>{item.name}</h3>
+                <p className="card-text mb-2">Rs {item.price.toFixed(2)}</p>
                 <button
                   onClick={() => removeFromCart(item.id.toString())}
                   className="btn btn-danger"

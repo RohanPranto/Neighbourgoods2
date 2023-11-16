@@ -48,7 +48,6 @@ h3 {
 .card1 {
   border-radius: 10px;
   padding: 15px;
-  margin: 15px;
 }
 
 .card1 img {
@@ -60,7 +59,10 @@ h3 {
   margin-top: 100px;
   margin-bottom: 100px;
 }
-
+.card-text{
+  margin-bottom: 5px;
+  font-size: 16px;
+}
 .button1 {
   background-color: white;
   border-radius: 35px;
@@ -115,9 +117,11 @@ h3 {
   .desc-text{
     display: none;
   }
+  
   .trade-card .btn{
     font-size: 14px;
   }
+  
   .tc2 br{
     display: none;
   }
@@ -127,7 +131,7 @@ h3 {
   }
   
   .card1 .card-text{
-    font-size: 14px;
+    font-size: 12px;
   }
   .card1 {
     display: flex;
@@ -147,7 +151,7 @@ h3 {
   }
   
   .card1 .btn {
-    margin-top: auto; /* Align the button to the bottom of the card body */
+    margin-top: 5px; /* Align the button to the bottom of the card body */
     font-size: 14px;
   }
 }
