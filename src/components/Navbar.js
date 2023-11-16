@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Corrected import
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
   faUser,
@@ -47,6 +47,15 @@ const LogoutButton = () => {
 
 const Navbar = () => {
   const { isAuthenticated, user } = useAuth0();
+  const [navbarExpanded, setNavbarExpanded] = useState(false);
+
+  const handleNavbarToggle = () => {
+    setNavbarExpanded(!navbarExpanded);
+  };
+
+  const handleLinkClick = () => {
+    setNavbarExpanded(false);
+  };
 
   return (
     <nav className="navbar navbar-expand-lg">
@@ -60,13 +69,16 @@ const Navbar = () => {
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
-          aria-expanded="false"
+          aria-expanded={navbarExpanded ? "true" : "false"}
           aria-label="Toggle navigation"
+          onClick={handleNavbarToggle}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
         <div
-          className="collapse navbar-collapse justify-content-end"
+          className={`collapse navbar-collapse justify-content-end ${
+            navbarExpanded ? "show" : ""
+          }`}
           id="navbarNav"
         >
           <ul
@@ -74,7 +86,11 @@ const Navbar = () => {
             style={{ marginRight: "auto", marginLeft: "auto" }}
           >
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              <Link
+                className="nav-link"
+                to="/about"
+                onClick={handleLinkClick}
+              >
                 ABOUT
               </Link>
             </li>
@@ -95,23 +111,39 @@ const Navbar = () => {
                   aria-labelledby="dropdownMenuButton1"
                 >
                   <li>
-                    <Link className="dropdown-item" to="/buy">
+                    <Link
+                      className="dropdown-item"
+                      to="/buy"
+                      onClick={handleLinkClick}
+                    >
                       Buy pre-loved goods<i className='bx bx-up-arrow-alt' ></i>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/sell">
+                    <Link
+                      className="dropdown-item"
+                      to="/sell"
+                      onClick={handleLinkClick}
+                    >
                       Sell your goods<i className='bx bx-up-arrow-alt' ></i>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/ridesharing">
+                    <Link
+                      className="dropdown-item"
+                      to="/ridesharing"
+                      onClick={handleLinkClick}
+                    >
                       Share Ride<i className='bx bx-up-arrow-alt' ></i>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/trade">
-                    Trade / Rent goods<i className='bx bx-up-arrow-alt' ></i>
+                    <Link
+                      className="dropdown-item"
+                      to="/trade"
+                      onClick={handleLinkClick}
+                    >
+                      Trade / Rent goods<i className='bx bx-up-arrow-alt' ></i>
                     </Link>
                   </li>
                 </ul>
@@ -119,7 +151,11 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="/cart">
+              <Link
+                className="nav-link"
+                to="/cart"
+                onClick={handleLinkClick}
+              >
                 CART
               </Link>
             </li>
@@ -127,7 +163,10 @@ const Navbar = () => {
           <ul className="navbar-nav nav-2">
             <li className="nav-item d-flex">
               {isAuthenticated && (
-                <Link className="nav-link m-0">
+                <Link
+                  className="nav-link m-0"
+                  onClick={handleLinkClick}
+                >
                   <FontAwesomeIcon className="mx-1" icon={faUser} />
                   {user?.nickname || user?.name || "User"}
                 </Link>
