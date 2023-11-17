@@ -54,7 +54,7 @@ function Contact() {
         </div>
         <div className="green">
           <p style={{ marginBottom: 0 }} className="float-end">
-            <a href="#">Back to top</a>
+            <a style={{textDecoration:"none"}} href="#">Back to top<i style={{rotate:"none", marginLeft:5}} className='bx bx-up-arrow-alt'></i></a>
           </p>
           <p style={{ marginBottom: 0 }}>
             © 2023 Neighbourgoods · <a href="#">Privacy</a> ·{" "}

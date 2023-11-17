@@ -1,15 +1,20 @@
 footer{
     background-color: #e3fdb280;
 }
-footer p , footer a{
+footer p{
     margin: 0;
     color: #07490d;
     font-weight: 100;
     font-size: 15px;
 
 }
+
 .green{
     background-color: #035B0B;
+    
+}
+.green a, .green p{
+    color: white;
 }
 .green p{
     padding: 20px 30px;
