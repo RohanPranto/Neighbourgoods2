@@ -30,8 +30,8 @@ h1{
 .sapling{
     height: 70px;
     position: relative;
-    left: 63%;
-    bottom: 77px;
+    left: 59%;
+    bottom: 85px;
 }
 .card{
     border-radius: 28px;
@@ -104,5 +104,11 @@ margin-top: 80px;
     }
     .news-img{
         width: 100%;
+    }
+    .sapling{
+        height: 60px;
+        position: relative;
+        left: 35%;
+        bottom: 75px;
     }
 }
