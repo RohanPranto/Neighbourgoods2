@@ -100,7 +100,7 @@ function Trade() {
           </div>
         </div>
 
-        <div className="text-center">
+        <div className="text-center mb-4">
           <button
             style={{ marginRight: "10px" }}
             className={`butn ${
@@ -157,7 +157,7 @@ function Trade() {
                     )}
                     <Link
                       to={`/product/${item.id}`}
-                      className="btn btn-success"
+                      className="btn btn-success mt-1"
                     >
                       Learn More
                     </Link>

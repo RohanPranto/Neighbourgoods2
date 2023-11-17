@@ -99,7 +99,7 @@ function Buy({ setCartItems }) {
         </div>
 
         <h3 className="sub-header mb-4">What are you looking for?</h3>
-        <div className="row mb-3">
+        <div className="row mb-4">
           <div className="col-md-12">
             <input
               type="text"
