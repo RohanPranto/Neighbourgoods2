@@ -43,18 +43,18 @@ function Home() {
                     sustainable
                   </span>{" "}
                   future
-                </h1>{" "}
+                </h1>{" "} <br />
                 <img src={tree1} alt="" className="sapling" />
-                <br /> <br />
+                
                 <p className="para-text">
                   Never doubt that a small group of thoughtful, committed
                   citizens can change the world; indeed it’s the only thing that
                   ever has. – Margaret Mead
-                </p>
+                </p> <br />
                 
               </div>
               <a className="butn" href="#about-us">
-                Learn More <i class='bx bx-up-arrow-alt' ></i>
+                Learn More <i className='bx bx-up-arrow-alt' ></i>
               </a>
             </div>
             <div className="col-md-6">

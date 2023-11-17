@@ -29,9 +29,9 @@ h1{
 }
 .sapling{
     height: 70px;
-    position: relative;
-    left: 59%;
-    bottom: 85px;
+    position: absolute;
+    left: 34%;
+    bottom: 51%;
 }
 .card{
     border-radius: 28px;
@@ -109,6 +109,6 @@ margin-top: 80px;
         height: 60px;
         position: relative;
         left: 35%;
-        bottom: 75px;
+        bottom: 95px;
     }
 }

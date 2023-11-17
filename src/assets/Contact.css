@@ -3,7 +3,8 @@ footer{
 }
 footer p , footer a{
     margin: 0;
-    color: #A3AF54;
+    color: #07490d;
+    font-weight: 100;
     font-size: 15px;
 
 }
@@ -13,3 +14,74 @@ footer p , footer a{
 .green p{
     padding: 20px 30px;
 }
+.contact-container .icon{
+    border-radius: 0;
+    box-shadow: none;
+    height: 40px;
+    margin: 10px;
+    margin-left: 0;
+}
+.right-col{
+    display: flex;
+    align-items: right;
+    justify-content: right;
+}
+/* Add this CSS in your style sheet or within the head of your HTML */
+.icons {
+    display: flex;
+  }
+  
+  .icon-container {
+    margin-right: 20px; /* Adjust the margin as needed */
+  }
+  .input-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input {
+    min-height: 40px;
+    width: 370px;
+    padding: 0 1rem;
+    color: black;
+    font-size: 15px;
+    border: 1px solid #043308;
+    border-radius: 26px;
+    background-color: transparent;
+    box-shadow: none;
+  }
+  
+  .button--submit {
+    min-height: 40px;
+    padding: .5em 1em;
+    border: none;
+    border-radius: 0 26px 26px 0;
+    background-color: #043308;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+  }
+  
+  .button--submit:hover {
+    background-color: #92bf46;
+  }
+  
+  .input:focus, .input:focus-visible {
+    border-color: #043308;
+    outline: none;
+  }
+
+
+  @media screen and (max-width: 767px) {
+    .input {
+        width: auto;
+      }
+      
+      .input-group{
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    
+  }
+  
