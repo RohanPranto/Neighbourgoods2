@@ -43,18 +43,18 @@ function Home() {
                     sustainable
                   </span>{" "}
                   future
-                </h1>{" "} <br />
+                </h1>{" "}
+                <br />
                 <img src={tree1} alt="" className="sapling" />
-                
                 <p className="para-text">
                   Never doubt that a small group of thoughtful, committed
                   citizens can change the world; indeed it’s the only thing that
                   ever has. – Margaret Mead
-                </p> <br />
-                
+                </p>{" "}
+                <br />
               </div>
               <a className="butn" href="#about-us">
-                Learn More <i className='bx bx-up-arrow-alt' ></i>
+                Learn More <i className="bx bx-up-arrow-alt"></i>
               </a>
             </div>
             <div className="col-md-6">
@@ -69,8 +69,7 @@ function Home() {
         </div>
       </section>
 
-      
-     {/* merquesssss */}
+      {/* merquesssss */}
       <section className="section2">
         <div className="news-ticker">
           <marquee behavior="scroll" direction="left" loop="infinite">
@@ -126,7 +125,7 @@ function Home() {
           </marquee>
         </div>
       </section>
-
+      {/* mission page */}
       <section className="section3">
         <div className="container">
           <div className="row">
@@ -171,7 +170,7 @@ function Home() {
                 production, and promote eco-conscious habits.
               </p>
               <Link className="butn" to="/about">
-                Learn More <i class='bx bx-up-arrow-alt' ></i>
+                Learn More <i class="bx bx-up-arrow-alt"></i>
               </Link>
             </div>
           </div>
@@ -179,6 +178,7 @@ function Home() {
         <br /> <br /> <br />
       </section>
 
+      {/* solution and cards */}
       <section className="section4 mt-5">
         <div className="container">
           <p className="yellow-text">Solutions</p>
@@ -190,68 +190,95 @@ function Home() {
           <div className="row">
             {/* Card 1 */}
             <div className="col-lg-4 col-md-6 mb-4">
-              <Link to="/buy" style={{textDecoration:"none"}}>
-              <div className="card" style={{height:"95%" , width:"90%" , padding:15}}>
-                <img src={card1} className="card-img-top" alt="Card 1" />
-                <p className="p-3  card-title text-center">Buy/Sell pre-loved goods</p>
-              </div>
+              <Link to="/buy" style={{ textDecoration: "none" }}>
+                <div
+                  className="card"
+                  style={{ height: "95%", width: "90%", padding: 15 }}
+                >
+                  <img src={card1} className="card-img-top" alt="Card 1" />
+                  <p className="p-3  card-title text-center">
+                    Buy/Sell pre-loved goods
+                  </p>
+                </div>
               </Link>
             </div>
 
             {/* Card 2 */}
             <div className="col-lg-4 col-md-6 mb-4">
-              <Link  to="/ridesharing" style={{textDecoration:"none"}}>
-              <div className="card" style={{height:"95%" , width:"90%", padding:15}}>
-                <img src={card2} className="card-img-top" alt="Card 2" />
-                <p className="p-3  card-title text-center">Share a ride</p>
-              </div>
+              <Link to="/ridesharing" style={{ textDecoration: "none" }}>
+                <div
+                  className="card"
+                  style={{ height: "95%", width: "90%", padding: 15 }}
+                >
+                  <img src={card2} className="card-img-top" alt="Card 2" />
+                  <p className="p-3  card-title text-center">Share a ride</p>
+                </div>
               </Link>
             </div>
 
             {/* Card 3 */}
             <div className="col-lg-4 col-md-6 mb-4">
-              <Link  to="/trade" style={{textDecoration:"none"}}>
-              <div className="card" style={{height:"95%" , width:"90%", padding:15}}>
-                <img src={card3} className="card-img-top" alt="Card 3" />
-                <p className="p-3  card-title text-center">Trade / Rent</p>
-              </div>
+              <Link to="/trade" style={{ textDecoration: "none" }}>
+                <div
+                  className="card"
+                  style={{ height: "95%", width: "90%", padding: 15 }}
+                >
+                  <img src={card3} className="card-img-top" alt="Card 3" />
+                  <p className="p-3  card-title text-center">Trade / Rent</p>
+                </div>
               </Link>
             </div>
-          </div> <br /> <br />
+          </div>{" "}
+          <br /> <br />
         </div>
       </section>
-
+      {/* newspaper cutout */}
       <section className="section5 ">
         <div className="container mt-5">
-          <div className="row" >
+          <div className="row">
             <div className="col-md-6">
               <img
                 className="img-fluid news-img"
-                style={{ boxShadow: "none"  ,borderRadius:15 }}
+                style={{ boxShadow: "none", borderRadius: 15 }}
                 src={group4}
                 alt="group"
               />
             </div>
             <div className="col-md-6 mission ">
               <p className="yellow-text">News</p>
-              <h1 id="about-us">We are socially obliged to act and <span style={{
-                      backgroundColor: "#DCF8AB",
-                      borderRadius: 40,
-                      padding: "0px 12px",
-                    }}>act now to protect</span> our planet</h1>{" "}
+              <h1 id="about-us">
+                We are socially obliged to act and{" "}
+                <span
+                  style={{
+                    backgroundColor: "#DCF8AB",
+                    borderRadius: 40,
+                    padding: "0px 12px",
+                  }}
+                >
+                  act now to protect
+                </span>{" "}
+                our planet
+              </h1>{" "}
               <br />
-              <br />
-              <p className="para-text" style={{width:"100%"}}>
-              The conversation around conserving the environment and protecting and preserving natural resources is gaining momentum globally. With the complete misuse and depletion of the earth’s resources, it’s time that our lifestyles become such that we incorporate sustainable habits in the smallest aspects of our life to balance out the negative impact on environment and gradually create a positive change in the long run. Read our latest news collection to get insights on whats happening around and stay updated.
+              <p className="para-text" style={{ width: "100%" }}>
+                The conversation around conserving the environment and
+                protecting and preserving natural resources is gaining momentum
+                globally. With the complete misuse and depletion of the earth’s
+                resources, it’s time that our lifestyles become such that we
+                incorporate sustainable habits in the smallest aspects of our
+                life to balance out the negative impact on environment and
+                gradually create a positive change in the long run. Read our
+                latest news collection to get insights on whats happening around
+                and stay updated.
               </p>
-              <Link className="butn" to="/">Read More<i class='bx bx-up-arrow-alt' ></i></Link>
+              <Link className="butn" to="/about">
+                Read More<i className="bx bx-up-arrow-alt"></i>
+              </Link>
             </div>
           </div>
         </div>{" "}
         <br /> <br /> <br />
       </section>
-
-      
     </div> // closing div tag
   );
 }
