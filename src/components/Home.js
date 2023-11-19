@@ -42,10 +42,10 @@ function Home() {
                   >
                     sustainable
                   </span>{" "}
-                  future
+                  future <img src={tree1} alt=""  className="sapling pb-1" />
                 </h1>{" "}
                 <br />
-                <img src={tree1} alt="" className="sapling" />
+                
                 <p className="para-text">
                   Never doubt that a small group of thoughtful, committed
                   citizens can change the world; indeed it’s the only thing that
