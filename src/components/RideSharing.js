@@ -143,7 +143,15 @@ const RideSharingForm = () => {
       <div className="row">
         <div className="col-lg-6">
           <p>View route on map</p>
-          <img src={map} alt="" className="img-fluid" />
+          {/* <img src={map} alt="" className="img-fluid" /> */}
+          <iframe title="map-uem"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.5125635141717!2d88.48732647441717!3d22.559925133436447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a020b267a3cdc13%3A0xb3b21d652126f40!2sUniversity%20of%20Engineering%20%26%20Management%2C%20Kolkata!5e0!3m2!1sen!2sin!4v1700427366746!5m2!1sen!2sin"
+      width={"100%"}
+      height="300"
+      style={{ border: 0 }}
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    ></iframe>
         </div>
 
         <div className="col-lg-6">
@@ -231,7 +239,7 @@ const RideSharingForm = () => {
 
       <div className="d-grid gap-2 mt-5">
             <button
-              className="butn mb-4"
+              className="butn mb-4" 
               onClick={handlePostRide}
               type="button"
             >

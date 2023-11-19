@@ -8,3 +8,7 @@
     margin-top: 3px;
     background-color: #F5FFE2;
 }
+.ride img{
+    box-shadow: none;
+    border-radius: 1px;
+}
