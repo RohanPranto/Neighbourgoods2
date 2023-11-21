@@ -114,7 +114,7 @@ footer p{
 
 .up-arrow {
   position: absolute;
-  top: 50%;
+  top: 35%;
   right: 30px; 
 }
 
@@ -153,6 +153,7 @@ footer p{
       .green .up-arrow {
         position: absolute;
         right: 0px; 
+        top: 30%;
       }
       .green .bx-up-arrow-alt {
         top: 20px;
