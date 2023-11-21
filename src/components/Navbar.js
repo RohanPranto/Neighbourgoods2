@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import logo from "../assets/logo.png";
 import {
   faShoppingCart,
   faUser,
@@ -61,6 +62,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg">
       <div className="container">
         <Link to="/" className="navbar-brand">
+        <img src={logo} alt="logo" width="30" height="30" style={{paddingBottom:10}}/>
           NeighbourGoods!
         </Link>
         <button

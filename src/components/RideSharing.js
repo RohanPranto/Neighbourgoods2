@@ -8,6 +8,7 @@ import "../assets/Ride.css";
 import "../assets/Home.css";
 const RideSharingForm = () => {
   const { isAuthenticated, user } = useAuth0();
+  const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
@@ -25,7 +26,7 @@ const RideSharingForm = () => {
       // Display a message or a login prompt if the user is not authenticated
       return;
     }
-
+    setLoading(true);
     // Create a new ride-sharing listing object
     const rideListing = {
       name,
@@ -69,6 +70,8 @@ const RideSharingForm = () => {
       alert("Your ride has been posted");
     } catch (error) {
       console.error("Error posting ride-sharing listing: ", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -238,13 +241,22 @@ const RideSharingForm = () => {
       </div>
 
       <div className="d-grid gap-2 mt-5">
+      {loading ? (
             <button
+              className="butn mb-4" disabled 
+              onClick={handlePostRide}
+              type="button"
+            >
+              Posting
+            </button> ) : (
+              <button
               className="butn mb-4" 
               onClick={handlePostRide}
               type="button"
             >
               Post
             </button>
+            )}
           </div>
      </form>
      ) : (
