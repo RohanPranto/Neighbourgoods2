@@ -52,35 +52,18 @@ function Contact() {
             </div>
           </div>
         </div>
+        
         <div className="green">
-          <div className="row">
-          <div className="col-lg-6">
-              <p>
-              © 2023 Neighbourgoods ·{" "} All rights reserved · <a href="#">Terms</a>
-                <a style={{ textDecoration: "none", paddingLeft: 10 }} href="#">
-                  
-                </a>
-              </p>
-            </div>
-            
-            <div className="col-lg-6">
-              <p className="float-end">
-                <a href="https://rohanpranto.github.io/">Developed by Rohan</a>{" "}
-                ·{" "}
-                <a href="https://monjimalahiri.me">
-                  Designed by Monjima
-                </a>{" "}
-                {""} ·
-                <a style={{ textDecoration: "none", paddingLeft: 10 }} href="#">
-                  Back to top
-                  <i
-                    style={{ rotate: "none", marginLeft: 5, marginBottom:5 }}
-                    className="bx bx-up-arrow-alt"
-                  ></i>
-                </a>
-              </p>
-            </div>
-          </div>
+          <p>
+            All rights reserved ©️Neighbourgoods 2023 <br />
+            Developed by <a href="https://rohanpranto.github.io">RohanBiswas</a>{" "}
+          · <br className="footfoot"/>
+            Designed by <a href="https://monjimalahiri.me">Monjima Lahiri</a>
+            <span className="up-arrow">
+              <a className="p-2" href="#"><i className="bx bx-up-arrow-alt"></i></a>
+              
+            </span>
+          </p>
         </div>
       </footer>
     </div>

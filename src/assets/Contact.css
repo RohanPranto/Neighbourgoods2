@@ -77,6 +77,53 @@ footer p{
     outline: none;
   }
 
+/* Add this CSS in your style sheet or within the head of your HTML */
+
+/* ... Existing styles ... */
+
+.icons {
+  display: flex;
+}
+
+.icon-container {
+  margin-right: 20px; /* Adjust the margin as needed */
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 10px; /* Add margin to separate from the icons */
+}
+.footfoot{
+  display: none;
+}
+.green {
+  background-color: #035B0B;
+  position: relative;
+  text-align: center;
+}
+
+.green a,
+.green p {
+  color: white;
+}
+
+.green p {
+  padding: 20px 30px;
+}
+
+.up-arrow {
+  position: absolute;
+  top: 50%;
+  right: 30px; 
+}
+
+.green .bx-up-arrow-alt{
+  transform: rotate(-45deg);
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
 
   @media screen and (max-width: 767px) {
     .input {
@@ -87,6 +134,31 @@ footer p{
         width: 100%;
         margin-bottom: 10px;
       }
-    
+      .input {
+        width: auto;
+      }
+    .footfoot{
+      display: block;
+    }
+    .green{
+      text-align: left;
+    }
+    .green p{
+      padding: 20px 20px;
+    }
+      .input-group {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .green .up-arrow {
+        position: absolute;
+        right: 0px; 
+      }
+      .green .bx-up-arrow-alt {
+        top: 20px;
+        border-radius: 50%;
+        border: 1px solid white;
+        transform: rotate(-45deg);
+      }
   }
   
