@@ -54,11 +54,24 @@ function Contact() {
         </div>
         <div className="green">
           <p style={{ marginBottom: 0 }} className="float-end">
-            <a style={{textDecoration:"none"}} href="#">Back to top<i style={{rotate:"none", marginLeft:5}} className='bx bx-up-arrow-alt'></i></a>
+          <a href="https://rohanpranto.github.io/">Developed by Rohan</a> ·{" "}
+            <a href="https://monjimalahiri.me">
+              Designed by Monjima
+              <i style={{ rotate: "none", marginLeft: 5 }} className="bx"></i>
+            </a> {""} · 
+
+            <a style={{ textDecoration: "none" , paddingLeft:10}} href="#">
+            Back to top
+              <i
+                style={{ rotate: "none", marginLeft: 5 }}
+                className="bx bx-up-arrow-alt"
+              ></i>
+            </a>
           </p>
           <p style={{ marginBottom: 0 }}>
-            © 2023 Neighbourgoods · <a href="#">Privacy</a> ·{" "}
-            <a href="#">Terms</a>
+            © 2023 Reshare ·{" "}
+            
+            <a href="#" style={{textDecoration:"none"}}>All rights reserved</a> · <a href="#">Terms</a>
           </p>
         </div>
       </footer>
