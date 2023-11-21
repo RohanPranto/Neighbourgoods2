@@ -63,7 +63,7 @@ const Navbar = () => {
       <div className="container">
         <Link to="/" className="navbar-brand">
         <img src={logo} alt="logo" width="30" height="30" style={{paddingBottom:10}}/>
-          Reshare
+          NeighbourGoods!
         </Link>
         <button
           className="navbar-toggler"

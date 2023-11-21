@@ -69,7 +69,7 @@ function Contact() {
             </a>
           </p>
           <p style={{ marginBottom: 0 }}>
-            © 2023 Reshare ·{" "}
+            © 2023 Neighbourgoods ·{" "}
             
             <a href="#" style={{textDecoration:"none"}}>All rights reserved</a> · <a href="#">Terms</a>
           </p>
