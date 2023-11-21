@@ -66,6 +66,12 @@ font-family: 'Nanum Pen Script', cursive; */
     background-color: white;
     /* text-align: center; */
   }
+  .navbar{
+    margin-top: 0;
+  }
+  .navbar-brand {
+    font-size: 2.2em;
+  }
   .dropdown-toggle {
     padding-left: 0;
     font-weight: bold;
