@@ -53,26 +53,34 @@ function Contact() {
           </div>
         </div>
         <div className="green">
-          <p style={{ marginBottom: 0 }} className="float-end">
-          <a href="https://rohanpranto.github.io/">Developed by Rohan</a> ·{" "}
-            <a href="https://monjimalahiri.me">
-              Designed by Monjima
-              <i style={{ rotate: "none", marginLeft: 5 }} className="bx"></i>
-            </a> {""} · 
-
-            <a style={{ textDecoration: "none" , paddingLeft:10}} href="#">
-            Back to top
-              <i
-                style={{ rotate: "none", marginLeft: 5 }}
-                className="bx bx-up-arrow-alt"
-              ></i>
-            </a>
-          </p>
-          <p style={{ marginBottom: 0 }}>
-            © 2023 Neighbourgoods ·{" "}
+          <div className="row">
+          <div className="col-lg-6">
+              <p>
+              © 2023 Neighbourgoods ·{" "} All rights reserved · <a href="#">Terms</a>
+                <a style={{ textDecoration: "none", paddingLeft: 10 }} href="#">
+                  
+                </a>
+              </p>
+            </div>
             
-            <a href="#" style={{textDecoration:"none"}}>All rights reserved</a> · <a href="#">Terms</a>
-          </p>
+            <div className="col-lg-6">
+              <p className="float-end">
+                <a href="https://rohanpranto.github.io/">Developed by Rohan</a>{" "}
+                ·{" "}
+                <a href="https://monjimalahiri.me">
+                  Designed by Monjima
+                </a>{" "}
+                {""} ·
+                <a style={{ textDecoration: "none", paddingLeft: 10 }} href="#">
+                  Back to top
+                  <i
+                    style={{ rotate: "none", marginLeft: 5, marginBottom:5 }}
+                    className="bx bx-up-arrow-alt"
+                  ></i>
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
