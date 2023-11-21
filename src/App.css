@@ -141,6 +141,9 @@ select {
 }
 
 @media (max-width: 767px) {
+    .buy-container .alignMid img {
+        border-radius: 10px;
+    }
     .card-title {
       font-size: 1.2rem; 
     }
