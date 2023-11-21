@@ -26,7 +26,11 @@ body{
 .button-div > button {
     width: 100px;
 }
-
+/* .buy-container .alignMid img{
+    width: 100%;
+    border-radius: 10px;
+    height: auto;
+} */
 .card {
     margin-left: auto;
     margin-right: auto;
@@ -96,14 +100,10 @@ body{
     font-weight: 500;
 }
 
-
-
-
-
-.img-fluid {
+/* .img-fluid {
     border-radius: 25px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
+} */
 
 .input,
 textarea,

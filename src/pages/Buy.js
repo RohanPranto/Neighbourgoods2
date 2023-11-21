@@ -79,7 +79,7 @@ function Buy({ setCartItems }) {
         <div className="row buy-container">
           <div className="col-md-6">
             <p className="yellow-text">BUY / SELL GOODS</p>
-            <h1>Used products, new savings, new life..</h1> <br />
+            <h1>Used products, new savings, new life..</h1> 
             <p className="para-text">
               Our platform makes it easy to find and list used products for
               sale. Buy the items you need at a fraction of the cost of new, and
@@ -87,14 +87,13 @@ function Buy({ setCartItems }) {
               selling used products, you can save money, reduce waste, and live
               more sustainably.
             </p>{" "}
-            <br />
             <Link className="butn" to="/sell">
               List an Item <i className="bx bx-up-arrow-alt"></i>
-            </Link>
+            </Link> 
           </div>
-
           <div className="col-md-6 alignMid ">
-            <img className=" baby-img" src={group69} alt="buy page" />
+               {/* replaced "baby-img" with "img-fluid" */}
+            <img className="mt-4 img-fluid" src={group69} alt="buy page" /> 
           </div>
         </div>
 

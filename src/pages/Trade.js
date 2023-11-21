@@ -80,7 +80,8 @@ function Trade() {
             </Link>
           </div>
           <div className="col-md-6 alignMid ">
-            <img className=" baby-img" src={baby} alt="" />
+            {/* replaced "baby-img" with "img-fluid" */}
+            <img className="img-fluid" src={baby} alt="" />
           </div>
         </div>
         <br />
