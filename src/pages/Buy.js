@@ -57,19 +57,29 @@ function Buy({ setCartItems }) {
     fetchProducts();
   }, []);
 
-  const addToCart = async (product) => {
-    try {
-      await addDoc(cartCollectionRef, { ...product, userId: user.sub });
+  const [addingToCartIndices, setAddingToCartIndices] = useState([]);
 
-      alert(`Added ${product.name} to your cart.`);
-      setCartItems((prevItems) => [
-        ...prevItems,
-        { ...product, userId: user.sub },
-      ]);
-    } catch (error) {
-      console.error("Error adding item to cart:", error);
-    }
-  };
+const addToCart = async (product, index) => {
+  try {
+    // Set loading state for the specific product
+    setAddingToCartIndices((prevIndices) => [...prevIndices, index]);
+
+    await addDoc(cartCollectionRef, { ...product, userId: user.sub });
+
+    alert(`Added ${product.name} to your cart.`);
+    setCartItems((prevItems) => [
+      ...prevItems,
+      { ...product, userId: user.sub },
+    ]);
+  } catch (error) {
+    console.error("Error adding item to cart:", error);
+  } finally {
+    // Reset loading state for the specific product
+    setAddingToCartIndices((prevIndices) =>
+      prevIndices.filter((i) => i !== index)
+    );
+  }
+};
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -111,7 +121,7 @@ function Buy({ setCartItems }) {
         </div>
 
         <div className="row row-cols-2 row-cols-md-2 row-cols-lg-4">
-          {currentProducts.map((product) => (
+          {currentProducts.map((product , index) => (
             <div key={product.id} className="col mb-4">
               <div className="card card1">
                 <img
@@ -127,12 +137,18 @@ function Buy({ setCartItems }) {
                   <p className="card-text">Rs {product.price.toFixed(0)}</p>
 
                   <div className="text-center text-center mb-2 mt-1 d-grid gap-2">
-                    <button
-                      className="btn btn-success"
-                      onClick={() => addToCart(product)}
-                    >
-                      Add to Cart
-                    </button>
+                  {addingToCartIndices.includes(index) ? (
+  <button className="btn btn-success" disabled>
+    Adding...
+  </button>
+) : (
+  <button
+    className="btn btn-success"
+    onClick={() => addToCart(product, index)}
+  >
+    Add to Cart
+  </button>
+)}
                   </div>
                 </div>
               </div>
