@@ -3,6 +3,7 @@ import butterfly from "../assets/butterfly.png";
 import apple from "../assets/apple.png";
 import playstore from "../assets/playstore.png";
 import "../assets/Contact.css";
+import { Link } from "react-router-dom";
 
 function Contact() {
   return (
@@ -64,6 +65,26 @@ function Contact() {
               
             </span>
           </p>
+          <div className="row">
+            <div className="col-lg-2">
+              <Link className="links" to="/policy">Privacy & Policy</Link>
+            </div>
+            <div className="col-lg-2">
+              <Link className="links" to="/terms">Terms & Conditions</Link>
+            </div>
+            <div className="col-lg-2">
+              <Link className="links" to="/shipping">Shipping and delivery</Link>
+            </div>
+            <div className="col-lg-2">
+              <Link className="links" to="/cancellation">Cancellation and refund</Link>
+            </div>
+            <div className="col-lg-2">
+              <Link className="links" to="/contact">Contact Us</Link>
+            </div>
+            <div className="col-lg-2">
+              <Link className="links" to="/about">About</Link>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

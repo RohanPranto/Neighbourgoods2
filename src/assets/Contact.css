@@ -19,6 +19,9 @@ footer p{
 .green p{
     padding: 20px 30px;
 }
+.links{
+  text-decoration: none;
+}
 .contact-container .icon{
     border-radius: 0;
     box-shadow: none;
@@ -111,7 +114,9 @@ footer p{
 .green p {
   padding: 20px 30px;
 }
-
+.green .row{
+  padding: 5px 20px;
+}
 .up-arrow {
   position: absolute;
   top: 35%;
@@ -153,7 +158,7 @@ footer p{
       .green .up-arrow {
         position: absolute;
         right: 0px; 
-        top: 30%;
+        top: 80%;
       }
       .green .bx-up-arrow-alt {
         top: 20px;

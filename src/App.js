@@ -18,6 +18,10 @@ import RideSharing from "./components/RideSharing";
 import RideDetails from "./components/RideDetails";
 import Rent from "./pages/Rent";
 import About from "./pages/About";
+import Policy from "./doc_pages/Policy";
+import Cancellation from "./doc_pages/Cancellation";
+import Shipping from "./doc_pages/Shipping";
+import Terms from "./doc_pages/Terms";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -49,6 +53,10 @@ function App() {
           <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/rent" element={<Rent />} />
+          <Route path="/policy" element={<Policy />} />
+          <Route path="/shipping" element={<Shipping />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/cancellation" element={<Cancellation />} />
           <Route path="/trade" element={<Trade />} />
           <Route path="/product/:tradeId" element={<ProductDetails />} />
           <Route path="/rent/:rentId" element={<ProductDetails />} />
