@@ -65,7 +65,7 @@ function Contact() {
               
             </span>
           </p>
-          <div className="row">
+          <div className="row" style={{marginRight:0 , marginLeft: 0}}>
             <div className="col-lg-2">
               <Link className="links" to="/policy">Privacy & Policy</Link>
             </div>
