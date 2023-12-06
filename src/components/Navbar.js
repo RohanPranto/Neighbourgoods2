@@ -169,8 +169,8 @@ const Navbar = () => {
                   className="nav-link m-0"
                   onClick={handleLinkClick}
                 >
-                  <FontAwesomeIcon className="mx-1" icon={faUser} />
                   {user?.nickname || user?.name || "User"}
+                  <img style={{ height: 30, borderRadius: '50%' , paddingLeft:8 }} src={user.picture} alt={user.name} />
                 </Link>
               )}
             </li>
