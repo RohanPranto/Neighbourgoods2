@@ -31,27 +31,32 @@ function Buy({ setCartItems }) {
   );
 
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(filteredProducts.length / productsPerPage); i++) {
+  for (
+    let i = 1;
+    i <= Math.ceil(filteredProducts.length / productsPerPage);
+    i++
+  ) {
     pageNumbers.push(i);
   }
 
   const fetchProducts = async () => {
     const productsCollection = collection(firestore, "products");
     const productsQuery = query(productsCollection);
-
+  
     try {
       const querySnapshot = await getDocs(productsQuery);
       const productsData = [];
-
+  
       querySnapshot.forEach((doc) => {
-        productsData.push(doc.data());
+        productsData.push({ id: doc.id, ...doc.data() }); // Include document ID in the product object
       });
-
+  
       setProducts(productsData);
     } catch (error) {
       console.error("Error fetching products:", error);
     }
   };
+  
 
   useEffect(() => {
     fetchProducts();
@@ -59,27 +64,27 @@ function Buy({ setCartItems }) {
 
   const [addingToCartIndices, setAddingToCartIndices] = useState([]);
 
-const addToCart = async (product, index) => {
-  try {
-    // Set loading state for the specific product
-    setAddingToCartIndices((prevIndices) => [...prevIndices, index]);
+  const addToCart = async (product, index) => {
+    try {
+      // Set loading state for the specific product
+      setAddingToCartIndices((prevIndices) => [...prevIndices, index]);
 
-    await addDoc(cartCollectionRef, { ...product, userId: user.sub });
+      await addDoc(cartCollectionRef, { ...product, userId: user.sub });
 
-    alert(`Added ${product.name} to your cart.`);
-    setCartItems((prevItems) => [
-      ...prevItems,
-      { ...product, userId: user.sub },
-    ]);
-  } catch (error) {
-    console.error("Error adding item to cart:", error);
-  } finally {
-    // Reset loading state for the specific product
-    setAddingToCartIndices((prevIndices) =>
-      prevIndices.filter((i) => i !== index)
-    );
-  }
-};
+      alert(`Added ${product.name} to your cart.`);
+      setCartItems((prevItems) => [
+        ...prevItems,
+        { ...product, userId: user.sub },
+      ]);
+    } catch (error) {
+      console.error("Error adding item to cart:", error);
+    } finally {
+      // Reset loading state for the specific product
+      setAddingToCartIndices((prevIndices) =>
+        prevIndices.filter((i) => i !== index)
+      );
+    }
+  };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -89,7 +94,7 @@ const addToCart = async (product, index) => {
         <div className="row buy-container">
           <div className="col-md-6">
             <p className="yellow-text">BUY / SELL GOODS</p>
-            <h1>Used products, new savings, new life..</h1> 
+            <h1>Used products, new savings, new life..</h1>
             <p className="para-text">
               Our platform makes it easy to find and list used products for
               sale. Buy the items you need at a fraction of the cost of new, and
@@ -99,11 +104,11 @@ const addToCart = async (product, index) => {
             </p>{" "}
             <Link className="butn" to="/sell">
               List an Item <i className="bx bx-up-arrow-alt"></i>
-            </Link> 
+            </Link>
           </div>
           <div className="col-md-6 alignMid ">
-               {/* replaced "baby-img" with "img-fluid" */}
-            <img className="mt-4 img-fluid" src={group69} alt="buy page" /> 
+            {/* replaced "baby-img" with "img-fluid" */}
+            <img className="mt-4 img-fluid" src={group69} alt="buy page" />
           </div>
         </div>
 
@@ -121,8 +126,9 @@ const addToCart = async (product, index) => {
         </div>
 
         <div className="row row-cols-2 row-cols-md-2 row-cols-lg-4">
-          {currentProducts.map((product , index) => (
+          {currentProducts.map((product, index) => (
             <div key={product.id} className="col mb-4">
+              <Link to={`/product/${product.id}`} className="text-decoration-none">
               <div className="card card1">
                 <img
                   src={product.imageUrl}
@@ -137,21 +143,22 @@ const addToCart = async (product, index) => {
                   <p className="card-text">Rs {product.price.toFixed(0)}</p>
 
                   <div className="text-center text-center mb-2 mt-1 d-grid gap-2">
-                  {addingToCartIndices.includes(index) ? (
-  <button className="btn btn-success" disabled>
-    Adding...
-  </button>
-) : (
-  <button
-    className="btn btn-success"
-    onClick={() => addToCart(product, index)}
-  >
-    Add to Cart
-  </button>
-)}
+                    {addingToCartIndices.includes(index) ? (
+                      <button className="btn btn-success" disabled>
+                        Adding...
+                      </button>
+                    ) : (
+                      <button
+                        className="btn btn-success"
+                        onClick={() => addToCart(product, index)}
+                      >
+                        Add to Cart
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
+              </Link>
             </div>
           ))}
         </div>

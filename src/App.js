@@ -11,7 +11,7 @@ import Buy from "./pages/Buy";
 import Trade from "./pages/Trade";
 import Cart from "./components/Cart";
 import Contact from "./components/Contact";
-import ProductDetails from "./components/ProductDetails";
+import TradeDetails from "./components/TradeDetails";
 import { getDocs } from "@firebase/firestore";
 import Checkout from "./pages/Checkout";
 import RideSharing from "./components/RideSharing";
@@ -22,6 +22,8 @@ import Policy from "./doc_pages/Policy";
 import Cancellation from "./doc_pages/Cancellation";
 import Shipping from "./doc_pages/Shipping";
 import Terms from "./doc_pages/Terms";
+import ProductInfo from "./components/ProductInfo";
+import RentDetails from "./components/RentDetails";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -58,10 +60,11 @@ function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/cancellation" element={<Cancellation />} />
           <Route path="/trade" element={<Trade />} />
-          <Route path="/product/:tradeId" element={<ProductDetails />} />
-          <Route path="/rent/:rentId" element={<ProductDetails />} />
+          <Route path="/trade/:tradeId" element={<TradeDetails />} />
+          <Route path="/rent/:rentId" element={<RentDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/ridesharing" element={<RideSharing />} />
+          <Route path="/product/:productId" element={<ProductInfo />} />
           <Route path="/ridedetails/:id" element={<RideDetails />} />
         </Routes>
         <Contact />

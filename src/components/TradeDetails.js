@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { firestore } from '../firebase';
 
-function ProductDetails() {
+function TradeDetails() {
   const [trade, setTrade] = useState(null);
   const { tradeId } = useParams(); // Get the tradeId from the route params
 
@@ -61,4 +61,4 @@ function ProductDetails() {
   );
 }
 
-export default ProductDetails;
+export default TradeDetails;

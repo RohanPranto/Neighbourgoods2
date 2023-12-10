@@ -76,7 +76,7 @@ function Trade() {
             </p>{" "}
             <br />
             <Link className="butn" to="/sell">
-              List an Item <i className='bx bx-up-arrow-alt' ></i>
+              List an Item <i className="bx bx-up-arrow-alt"></i>
             </Link>
           </div>
           <div className="col-md-6 alignMid ">
@@ -104,9 +104,7 @@ function Trade() {
         <div className="text-center mb-4">
           <button
             style={{ marginRight: "10px" }}
-            className={`butn ${
-              currentType === "trade" ? "butn" : "button1"
-            }`}
+            className={`butn ${currentType === "trade" ? "butn" : "button1"}`}
             onClick={() => setCurrentType("trade")}
           >
             Trade
@@ -114,9 +112,7 @@ function Trade() {
 
           <button
             style={{ marginLeft: "10px" }}
-            className={`butn ${
-              currentType === "rent" ? "butn" : "button1"
-            }`}
+            className={`butn ${currentType === "rent" ? "butn" : "button1"}`}
             onClick={() => setCurrentType("rent")}
           >
             Rent
@@ -146,7 +142,9 @@ function Trade() {
 
                     {/* Conditionally render based on currentType */}
                     {currentType === "trade" && (
-                      <p className="card-text">Exchange For: {item.exchangeFor}</p>
+                      <p className="card-text">
+                        Exchange For: {item.exchangeFor}
+                      </p>
                     )}
 
                     {currentType === "rent" && (
@@ -157,7 +155,11 @@ function Trade() {
                       </div>
                     )}
                     <Link
-                      to={`/product/${item.id}`}
+                      to={
+                        currentType === "trade"
+                          ? `/trade/${item.id}`
+                          : `/rent/${item.id}`
+                      }
                       className="btn btn-success mt-1"
                     >
                       Learn More
