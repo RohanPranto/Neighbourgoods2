@@ -77,6 +77,10 @@ h3 {
   .baby-img {
     width: 100%;
   }
+  .details-card{
+    width: 100%;
+    margin-top: 20px;
+  }
   .buy-container .baby-img{
     margin-top: 40px;
   }

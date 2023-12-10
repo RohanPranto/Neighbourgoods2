@@ -31,14 +31,14 @@ function RentDetails() {
   }
 
   return (
-    <div className="container my-3">
+    <div className="container">
     <h1 className="my-4">{rent.name}</h1>
-      <div className="row mb-5">
+      <div className="row mb-3">
         <div className="col-md-4 d-flex justify-content-center align-items-center">
           <img src={rent.imageUrl} className="img-fluid" alt={rent.name} />
         </div>
         <div className="col-md-8">
-          <div className="card" style={{height:"100%"}}>
+          <div className="card details-card" style={{height:"100%"}}>
             <div className="card-body">
               <p className="card-text">Location: {rent.location}</p>
               <p className="card-text">Description: {rent.description}</p>

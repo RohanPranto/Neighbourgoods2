@@ -31,15 +31,15 @@ function ProductInfo() {
   }
 
   return (
-    <div className="container my-3">
+    <div className="container">
       <h1 className="my-4">{product.name}</h1>
-      <div className="row mb-5">
+      <div className="row mb-3">
         <div className="col-md-4 d-flex justify-content-center align-items-center">
           <img src={product.imageUrl} className="img-fluid" alt={product.name} />
         </div>
         <div className="col-md-8">
-          <div className="card" style={{ height: "100%" }}>
-            <div className="card-body p-5">
+          <div className="card details-card" style={{ height: "100%" }}>
+            <div className="card-body p-4">
             <p className="card-text">Seller: {product.sellerNm}</p>
               <p className="card-text">Location: {product.location}</p>
               <p className="card-text">Contact: {product.contactNumber}</p>
