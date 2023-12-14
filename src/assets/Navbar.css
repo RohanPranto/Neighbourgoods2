@@ -69,6 +69,7 @@ font-family: 'Nanum Pen Script', cursive; */
   }
   .navbar{
     margin-top: 0;
+    margin-bottom: 0;
   }
   .navbar-brand {
     font-size: 1.8em;

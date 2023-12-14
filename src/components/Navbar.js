@@ -59,7 +59,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav className="navbar navbar-expand-lg" style={{marginBottom:0, paddingBottom:0}}>
       <div className="container">
         <Link to="/" className="navbar-brand">
         <img src={logo} alt="logo" width="30" height="30" style={{paddingBottom:10}}/>

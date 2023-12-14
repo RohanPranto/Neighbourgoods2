@@ -17,7 +17,7 @@ function Home() {
     <div>
       {/* landing */}
       <section>
-        <div className="container mb-4">
+        <div className="container">
           <div className="row">
             <div className="col-md-6 home-div">
               <div>
@@ -60,7 +60,7 @@ function Home() {
             <div className="col-md-6">
               <img
                 className="img-fluid"
-                style={{ boxShadow: "none", padding: 20 }}
+                style={{ boxShadow: "none" }}
                 src={group2}
                 alt="group"
               />
