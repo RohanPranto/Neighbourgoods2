@@ -78,7 +78,8 @@ function ProductInfo() {
               <p className="card-text" style={{fontWeight:"800"}}>Rs {product.price.toFixed(0)}</p>
               <p className="card-text">Seller: {product.sellerNm}</p>
               <p className="card-text">Location: {product.location}</p>
-              <p className="card-text">Contact: {product.contactNumber}</p>
+              <p className="card-text">Contact: <a style={{textDecoration:"none"}} href={`tel:${product.contactNumber}`}>{product.contactNumber}</a>
+ </p>
               <p className="card-text">Description: {product.description}</p>
               <p className="card-text">Exchange/Rent/Sell: {product.type}</p>
               <Link to="/checkout" className="btn btn-success w-100">

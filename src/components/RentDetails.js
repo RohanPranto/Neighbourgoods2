@@ -57,7 +57,8 @@ function RentDetails() {
               <p className="card-text">Duration: {rent.rentDuration}</p>
               <p className="card-text">Location: {rent.location}</p>
               <p className="card-text">Description: {rent.description}</p>
-              <p className="card-text">Contact: {rent.contactNumber}</p>
+              <p className="card-text">Contact: <a style={{textDecoration:"none"}} href={`tel:${rent.contactNumber}`}>{rent.contactNumber}</a>
+ </p>
               <p className="card-text">Sellers Name: {rent.sellerNm}</p>
 
               <p className="card-text">Type: {rent.type}</p>

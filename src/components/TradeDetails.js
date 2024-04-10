@@ -50,7 +50,8 @@ function TradeDetails() {
               <h1 style={{backgroundColor:"#dcf8ab",padding:8,borderRadius:12}}>{trade.name}</h1>
               <p className="card-text">Location: {trade.location}</p>
               <p className="card-text">Description: {trade.description}</p>
-              <p className="card-text">Contact: {trade.contactNumber}</p>
+              <p className="card-text">Contact: <a style={{textDecoration:"none"}} href={`tel:${trade.contactNumber}`}>{trade.contactNumber}</a>
+ </p>
               <p className="card-text">Sellers Name: {trade.sellerNm}</p>
               <p className="card-text">Type: {trade.type}</p>
               {trade.type === "Trade" && (
