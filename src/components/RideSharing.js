@@ -215,7 +215,7 @@ const RideSharingForm = () => {
               </div>
 
               <div className="form-group my-4">
-            <label htmlFor="fare">Fare</label>
+            <label htmlFor="fare">Total Fare</label>
             <input
               type="number"
               id="fare"

@@ -272,7 +272,7 @@ function Home() {
                 and stay updated.
               </p>
               <Link className="butn" to="/about">
-                Read More<i className="bx bx-up-arrow-alt"></i>
+                Read More <i className="bx bx-up-arrow-alt"></i>
               </Link>
             </div>
           </div>

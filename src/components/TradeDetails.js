@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { doc, getDoc } from 'firebase/firestore';
-import { firestore } from '../firebase';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { firestore } from "../firebase";
 
 function TradeDetails() {
   const [trade, setTrade] = useState(null);
@@ -10,16 +10,16 @@ function TradeDetails() {
   useEffect(() => {
     const fetchTrade = async () => {
       try {
-        const tradeRef = doc(firestore, 'trade', tradeId);
+        const tradeRef = doc(firestore, "trade", tradeId);
         const tradeSnapshot = await getDoc(tradeRef);
 
         if (tradeSnapshot.exists()) {
           setTrade(tradeSnapshot.data());
         } else {
-          console.error('Trade item not found');
+          console.error("Trade item not found");
         }
       } catch (error) {
-        console.error('Error fetching trade item:', error);
+        console.error("Error fetching trade item:", error);
       }
     };
 
@@ -32,31 +32,46 @@ function TradeDetails() {
 
   return (
     <div className="container">
-    <h1 className="my-4">{trade.name}</h1>
-      <div className="row mb-3">
+      <div className="row mb-3 mt-5">
         <div className="col-md-4 d-flex justify-content-center align-items-center">
-          <img src={trade.imageUrl} className="img-fluid" alt={trade.name} />
+          <img src={trade.imageUrl} style={{aspectRatio:"1/1"}} className="img-fluid" alt={trade.name} />
         </div>
         <div className="col-md-8">
-          <div className="card details-card" style={{height:"100%"}}>
+          <div
+            className="card details-card p-3"
+            style={{
+              height: "100%",
+              transform:"none",
+              background: "none",
+              border: "3px solid green",
+            }}
+          >
             <div className="card-body">
+              <h1 style={{backgroundColor:"#dcf8ab",padding:8,borderRadius:12}}>{trade.name}</h1>
               <p className="card-text">Location: {trade.location}</p>
               <p className="card-text">Description: {trade.description}</p>
               <p className="card-text">Contact: {trade.contactNumber}</p>
               <p className="card-text">Sellers Name: {trade.sellerNm}</p>
               <p className="card-text">Type: {trade.type}</p>
-              {trade.type === 'Trade' && (
+              {trade.type === "Trade" && (
                 <div>
+                  <p className="card-text">
+                    Exchange or Rent: {trade.exchangeOrRent}
+                  </p>
                   <p className="card-text">Exchange For: {trade.exchangeFor}</p>
-                  <p className="card-text">Exchange or Rent: {trade.exchangeOrRent}</p>
-                  <p className="card-text">Item Used For How Long: {trade.itemUsedForHowLong}</p>
-                  <p className="card-text">Product Condition: {trade.productCondition}</p>
+                  <p className="card-text">
+                    Item Used For How Long: {trade.itemUsedForHowLong}
+                  </p>
+                  <p className="card-text">
+                    Product Condition: {trade.productCondition}
+                  </p>
                 </div>
               )}
             </div>
           </div>
         </div>
-      </div> <br /> <br />
+      </div>{" "}
+      <br /> <br />
     </div>
   );
 }

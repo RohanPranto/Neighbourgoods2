@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
-
+import ride from "../assets/rideshare.avif"
 const RideDetails = () => {
   const { id } = useParams();
   const [rideData, setRideData] = useState(null);
@@ -28,18 +28,23 @@ const RideDetails = () => {
   }, [id]);
 
   return (
-    <div className="container mt-3">
-      <h2>Ride Details</h2>
-      {rideData ? (
-        <div className="card">
-          <div className="card-body">
-            <h5 className="card-title">
+    <div className="container mt-5 mb-5">
+      <div className="row">
+       <div className="col-lg-4">
+        <img src={ride} alt="ride" style={{width:"100%"}}/>
+       </div>
+
+       <div className="col-lg-8">
+       {rideData ? (
+        <div className="card" style={{transform:"none", background:"none", border:"3px solid green"}}>
+          <div className="card-body p-5">
+            <h2 className="card-title" style={{backgroundColor:"#dcf8ab",padding:8,borderRadius:10}}>
               {rideData.startingPoint} to {rideData.endPoint}
-            </h5>
+            </h2> <br/>
             <p className="card-text">Date: {rideData.date}</p>
             <p className="card-text">Passenger Count: {rideData.passengerCount}</p>
             <p className="card-text">Name: {rideData.name}</p>
-            <p className="card-text">Age: {rideData.age}</p>
+            <p className="card-text">Total Fare: {rideData.fare}</p>
             <p className="card-text">Gender: {rideData.gender}</p>
             <p className="card-text">Contact Number: {rideData.contactNumber}</p>
           </div>
@@ -47,6 +52,8 @@ const RideDetails = () => {
       ) : (
         <p>Loading ride details...</p>
       )}
+       </div>
+      </div>
     </div>
   );
 };

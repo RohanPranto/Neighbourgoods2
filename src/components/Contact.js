@@ -1,7 +1,5 @@
 import React from "react";
 import butterfly from "../assets/butterfly.png";
-import apple from "../assets/apple.png";
-import playstore from "../assets/playstore.png";
 import "../assets/Contact.css";
 import { Link } from "react-router-dom";
 
@@ -14,24 +12,14 @@ function Contact() {
           style={{ paddingTop: 25, paddingBottom: 25 }}
         >
           <div className="row">
-            <div className="col-md-6">
-              <p>Download app from</p>
-              <div className="icons">
-                <div className="icon-container">
-                  <img
-                    src={playstore}
-                    alt="playstore"
-                    className="img-fluid icon"
-                  />
-                  <p>GooglePlay</p>
-                </div>
-                <div className="icon-container">
-                  <img src={apple} alt="apple" className="img-fluid icon" />
-                  <p>App Store</p>
-                </div>
-              </div>
-              <br />
-              <p className="mb-2">Subscribe to our Newsletter</p>
+            <div className="col-md-6 mt-5">
+              <p style={{fontWeight:"400"}}>Download app from</p>
+            <i class='bx bxl-play-store bx-lg' style={{rotate:"none"}}></i>
+              <i class='bx bxl-apple bx-lg' style={{rotate:"none"}} ></i>
+              
+              <br /> <br />
+              <br /> 
+              <p className="mb-2" style={{fontWeight:"400"}}>Subscribe to our Newsletter</p>
               <div className="input-group">
                 <input
                   type="email"

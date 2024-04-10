@@ -40,13 +40,19 @@ function Cart() {
     }
   }, [user]);
 
-  const removeFromCart = async (itemId: string) => {
+  const removeFromCart = async (itemId) => {
     console.log("Removing item with ID:", itemId);
-
-    await deleteDoc(doc(cartCollectionRef, itemId.toString()));
-
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+  
+    try {
+      await deleteDoc(doc(cartCollectionRef, itemId));
+      setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+      console.log("Item removed successfully from Firestore.");
+    } catch (error) {
+      console.error("Error removing item from cart:", error);
+    }
   };
+  
+  
 
   return (
     <div className="container">

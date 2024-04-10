@@ -79,9 +79,8 @@ function Trade() {
               List an Item <i className="bx bx-up-arrow-alt"></i>
             </Link>
           </div>
-          <div className="col-md-6 alignMid ">
-            {/* replaced "baby-img" with "img-fluid" */}
-            <img className="img-fluid" src={baby} alt="" />
+          <div className="col-md-6 alignMid p-4">
+            <img src={baby} alt="" />
           </div>
         </div>
         <br />
