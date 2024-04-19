@@ -9,7 +9,7 @@ function Contact() {
       <footer>
         <div
           className="container contact-container"
-          style={{ paddingTop: 25, paddingBottom: 25 }}
+          // style={{ paddingTop: 25, paddingBottom: 25 }}
         >
           <div className="row">
             <div className="col-md-6 mt-5">
@@ -19,7 +19,7 @@ function Contact() {
               
               <br /> <br />
               <br /> 
-              <p className="mb-2" style={{fontWeight:"400"}}>Subscribe to our Newsletter</p>
+              {/* <p className="mb-2" style={{fontWeight:"400"}}>Subscribe to our Newsletter</p>
               <div className="input-group">
                 <input
                   type="email"
@@ -33,7 +33,7 @@ function Contact() {
                   value="Subscribe"
                   type="submit"
                 />
-              </div>
+              </div> */}
             </div>
 
             <div className="col-md-6 right-col">

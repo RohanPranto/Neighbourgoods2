@@ -26,6 +26,24 @@ const RideSharingForm = () => {
       // Display a message or a login prompt if the user is not authenticated
       return;
     }
+
+      // Check if any required field is empty
+  if (
+    !name ||
+    !gender ||
+    !contactNumber ||
+    !startingPoint ||
+    !endPoint ||
+    !date ||
+    !time ||
+    !type ||
+    !fare ||
+    !passengerCount
+  ) {
+    alert("Please fill all the fields");
+    return;
+  }
+
     setLoading(true);
     // Create a new ride-sharing listing object
     const rideListing = {
@@ -186,6 +204,7 @@ const RideSharingForm = () => {
               <option value="Bike">Bike</option>
               <option value="Car">Car</option>
               <option value="Van">Van</option>
+              <option value="Bus">Bus</option>
             </select>
           </div>
           <div className="form-group my-4">
@@ -228,6 +247,7 @@ const RideSharingForm = () => {
           <div className="form-group my-4">
             <label htmlFor="passengerCount">Passenger Count</label>
             <input
+            required
               type="number"
               id="passengerCount"
               className="form-control"
@@ -293,6 +313,7 @@ const RideSharingList = () => {
 
   return (
     <div className="container existing-ride">
+      <hr/>
       <h1>Existing Rides</h1>
       <div className="row row-cols-1">
         {rideListings.map((listing) => (
@@ -307,7 +328,7 @@ const RideSharingList = () => {
                     {listing.startingPoint} to {listing.endPoint}
                   </h5>
                   <p className="card-text">
-                    Date: {listing.date} - {listing.passengerCount} passengers
+                    Date: {listing.date} &nbsp;&nbsp;&nbsp;  Passenger required : {listing.passengerCount} &nbsp;&nbsp;&nbsp;  Via : {listing.type}
                   </p>
                   {/* Add other information here (name, age, gender, contactNumber) */}
                 </div>

@@ -44,9 +44,10 @@ const RideDetails = () => {
             <p className="card-text">Date: {rideData.date}</p>
             <p className="card-text">Passenger Count: {rideData.passengerCount}</p>
             <p className="card-text">Name: {rideData.name}</p>
+            <p className="card-text">Mode of transport: {rideData.type}</p>
             <p className="card-text">Total Fare: {rideData.fare}</p>
             <p className="card-text">Gender: {rideData.gender}</p>
-            <p className="card-text">Contact Number: {rideData.contactNumber}</p>
+            <p className="card-text">Contact Number: <a style={{textDecoration:"none"}} href={`tel:${rideData.contactNumber}`}>{rideData.contactNumber}</a></p>
           </div>
         </div>
       ) : (
