@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
 import ride from "../assets/rideshare.avif"
+import { Spinner } from "react-bootstrap";
+
 const RideDetails = () => {
   const { id } = useParams();
   const [rideData, setRideData] = useState(null);
@@ -32,6 +34,8 @@ const RideDetails = () => {
       <div className="row">
        <div className="col-lg-4">
         <img src={ride} alt="ride" style={{width:"100%"}}/>
+        
+      <a href="/ridesharing" className="bu    tn" style={{backgroundColor:"#d7e5be"}}>Back</a>
        </div>
 
        <div className="col-lg-8">
@@ -51,7 +55,12 @@ const RideDetails = () => {
           </div>
         </div>
       ) : (
-        <p>Loading ride details...</p>
+        <div>
+          <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner> 
+      <p>Loading</p>
+        </div>
       )}
        </div>
       </div>
