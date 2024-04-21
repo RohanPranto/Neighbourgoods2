@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useAuth0 } from '@auth0/auth0-react';
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { cartCollectionRef } from './firebase';
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Sell from "./pages/Sell";
@@ -12,7 +10,6 @@ import Trade from "./pages/Trade";
 import Cart from "./components/Cart";
 import Contact from "./components/Contact";
 import TradeDetails from "./components/TradeDetails";
-import { getDocs } from "@firebase/firestore";
 import Checkout from "./pages/Checkout";
 import RideSharing from "./components/RideSharing";
 import RideDetails from "./components/RideDetails";
@@ -26,23 +23,6 @@ import ProductInfo from "./components/ProductInfo";
 import RentDetails from "./components/RentDetails";
 
 function App() {
-  const { isAuthenticated } = useAuth0();
-  const [cartItems, setCartItems] = useState([]);
-
-  const fetchCartItems = async () => {
-    try {
-      const querySnapshot = await getDocs(cartCollectionRef);
-      const items = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      setCartItems(items);
-    } catch (error) {
-      console.error("Error fetching cart items:", error);
-    }
-  };
-
-  useEffect(() => {
-    isAuthenticated ? fetchCartItems() : setCartItems([]);
-  }, [isAuthenticated]);
-
   return (
     <div className="app">
       <Router>
@@ -52,7 +32,7 @@ function App() {
           <Route path="/sell" element={<Sell />} />
           <Route path="/about" element={<About/>} />
           <Route path="/buy" element={<Buy />} />
-          <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/rent" element={<Rent />} />
           <Route path="/policy" element={<Policy />} />

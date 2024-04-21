@@ -27,7 +27,13 @@ function RentDetails() {
   }, [rentId]);
 
   if (rent === null) {
-    return <p>Loading...</p>;
+    return (
+      <div className="d-flex justify-content-center align-items-center" style={{height: "90vh"}}>
+            <div className="spinner-border text-success" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            </div>
+    )
   }
 
   return (
@@ -49,6 +55,7 @@ function RentDetails() {
                   backgroundColor: "#dcf8ab",
                   padding: 8,
                   borderRadius: 12,
+                  border: "2px solid green",
                 }}
               >
                 {rent.name}

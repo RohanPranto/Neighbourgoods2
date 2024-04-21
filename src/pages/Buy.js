@@ -6,8 +6,8 @@ import "../App.css";
 import group69 from "../assets/Group69.png";
 import { Link } from "react-router-dom";
 
-function Buy({ setCartItems }) {
-  const { user } = useAuth0();
+function Buy() {
+  const { user, isAuthenticated } = useAuth0();
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(12);
@@ -62,29 +62,21 @@ function Buy({ setCartItems }) {
     fetchProducts();
   }, []);
 
-  const [addingToCartIndices, setAddingToCartIndices] = useState([]);
-
-  const addToCart = async (product, index) => {
-    try {
-      // Set loading state for the specific product
-      setAddingToCartIndices((prevIndices) => [...prevIndices, index]);
-
-      await addDoc(cartCollectionRef, { ...product, userId: user.sub });
-
-      alert(`Added ${product.name} to your cart.`);
-      setCartItems((prevItems) => [
-        ...prevItems,
-        { ...product, userId: user.sub },
-      ]);
-    } catch (error) {
-      console.error("Error adding item to cart:", error);
-    } finally {
-      // Reset loading state for the specific product
-      setAddingToCartIndices((prevIndices) =>
-        prevIndices.filter((i) => i !== index)
-      );
-    }
-  };
+  // const addToCart = async (product) => {
+  //   try {
+  //     if (!isAuthenticated) {
+  //       console.error("User not authenticated");
+  //       return;
+  //     }
+  
+  //     const itemToAdd = { ...product, userId: user.sub, imageUrl: product.imageUrl }; // Include imageUrl property
+  //     await addDoc(cartCollectionRef, itemToAdd);
+  //     alert(`Added ${product.name} to your cart.`);
+  //   } catch (error) {
+  //     console.error("Error adding item to cart:", error);
+  //   }
+  // };
+  
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -112,7 +104,7 @@ function Buy({ setCartItems }) {
           </div>
         </div>
 
-        <h3 className="sub-header mb-4">What are you looking for?</h3>
+        <h3 className="sub-header mb-4 text-center">What are you looking for?</h3>
         <div className="row mb-4">
           <div className="col-md-12">
             <input
@@ -126,36 +118,31 @@ function Buy({ setCartItems }) {
         </div>
 
         <div className="row row-cols-2 row-cols-md-2 row-cols-lg-4">
-          {currentProducts.map((product, index) => (
+          {currentProducts.map((product) => (
             <div key={product.id} className="col mb-4">
-              <Link to={`/product/${product.id}`} className="text-decoration-none">
+               <Link to={`/product/${product.id}`} className="text-decoration-none">
               <div className="card card1">
                 <img
                   src={product.imageUrl}
                   className="card-img-top"
                   alt={product.name}
                 />
-                <div className="card-body">
+                <div className="card-body" style={{paddingBottom:0}}>
                   <h5 className="card-title">
                     <strong>{product.name}</strong>
                   </h5>
                   <p className="card-text">{product.location}</p>
-                  <p className="card-text">Rs {product.price.toFixed(0)}</p>
-
-                  <div className="text-center text-center mb-2 mt-1 d-grid gap-2">
-                    {addingToCartIndices.includes(index) ? (
-                      <button className="btn btn-success" disabled>
-                        Adding...
-                      </button>
-                    ) : (
-                      <button
-                        className="btn btn-success"
-                        onClick={() => addToCart(product, index)}
-                      >
-                        Add to Cart
-                      </button>
-                    )}
-                  </div>
+                  <h5 className="">Rs {product.price.toFixed(0)}</h5>
+                  {/* {isAuthenticated ? (
+                    <button
+                      className="btn btn-success"
+                      onClick={() => addToCart(product)}
+                    >
+                      Add to Cart
+                    </button>
+                  ) : (
+                    <p className="card-text">Login to add to cart</p>
+                  )} */}
                 </div>
               </div>
               </Link>

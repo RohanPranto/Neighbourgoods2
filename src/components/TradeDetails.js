@@ -27,7 +27,13 @@ function TradeDetails() {
   }, [tradeId]);
 
   if (trade === null) {
-    return <p>Loading...</p>;
+    return (
+      <div className="d-flex justify-content-center align-items-center" style={{height: "90vh"}}>
+            <div className="spinner-border text-success" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            </div>
+    )
   }
 
   return (
@@ -47,7 +53,7 @@ function TradeDetails() {
             }}
           >
             <div className="card-body">
-              <h1 style={{backgroundColor:"#dcf8ab",padding:8,borderRadius:12}}>{trade.name}</h1>
+              <h1 style={{backgroundColor:"#dcf8ab",padding:8,borderRadius:12,border: "2px solid green",}}>{trade.name}</h1>
               <p className="card-text">Location: {trade.location}</p>
               <p className="card-text">Description: {trade.description}</p>
               <p className="card-text">Contact: <a style={{textDecoration:"none"}} href={`tel:${trade.contactNumber}`}>{trade.contactNumber}</a>

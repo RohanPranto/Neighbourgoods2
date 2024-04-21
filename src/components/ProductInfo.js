@@ -4,7 +4,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { addDoc } from "firebase/firestore";
 import { firestore, cartCollectionRef } from "../firebase";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import { Spinner } from "react-bootstrap";
 
 function ProductInfo({ setCartItems }) {
   const { isAuthenticated, user } = useAuth0();
@@ -54,7 +54,13 @@ function ProductInfo({ setCartItems }) {
   };
 
   if (product === null) {
-    return <p>Loading...</p>;
+    return(
+      // spinner
+        <div className="d-flex justify-content-center align-items-center" style={{height:"100vh"}}>
+        <Spinner animation="border" variant="success" /> 
+      </div>
+      
+    )
   }
 
   return (
@@ -79,7 +85,7 @@ function ProductInfo({ setCartItems }) {
             }}
           >
             <div className="card-body p-4">
-              <h1 className="my-2">
+              <h1 className="my-2" >
                 <span
                   style={{
                     backgroundColor: "#dcf8ab",
@@ -109,23 +115,41 @@ function ProductInfo({ setCartItems }) {
               <p className="card-text">Description: {product.description}</p>
               <p className="card-text">Exchange/Rent/Sell: {product.type}</p>
 
-
               {isAuthenticated ? (
-                <div>
-                  <Link to="/checkout" className="btn btn-success w-100">
-                    Buy Now
-                  </Link>
-                  <button
-                    className="btn btn-success"
-                    onClick={addToCart}
-                  >
-                    Add to Cart
-                  </button>
+                <div className="row g-2">
+                  <div className="col-lg-6">
+                    <Link
+                      to="/checkout"
+                      className="btn border-success border-2 btn-success w-100"
+                    >
+                      Buy Now
+                    </Link>
+                  </div>
+                  <div className="col-lg-6">
+                    <button
+                      className="btn border-success border-2 w-100"
+                      onClick={addToCart}
+                      style={{
+                        transition: "background-color 0.3s",
+                        backgroundColor: "transparent",
+                        color:"black"
+                      }}
+                      onMouseOver={(e) => {
+                        e.target.style.backgroundColor = "#157347";
+                        e.target.style.color = "#fff";
+                      }}
+                      onMouseOut={(e) =>
+                        {e.target.style.backgroundColor = "transparent";
+                        e.target.style.color = "black";}
+                      }
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
               ) : (
-                <p className="card-text">Login to buy or add to cart</p>
+                <p className="card-text text-danger">Login to buy or add to cart</p>
               )}
-
             </div>
           </div>
         </div>

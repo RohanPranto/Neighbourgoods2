@@ -87,7 +87,7 @@ function Trade() {
         <br />
         <br />
         <br />
-        <h3 className="sub-header mb-3">What are you looking for?</h3>
+        <h3 className="sub-header mb-3 text-center">What are you looking for?</h3>
         <div className="row mb-3">
           <div className="col-md-12">
             <input
@@ -119,7 +119,13 @@ function Trade() {
         </div>
 
         {loading ? (
-          <p>Loading...</p>
+          <>
+          <div className="d-flex justify-content-center align-items-center" style={{height: "50vh"}}>
+            <div className="spinner-border text-success" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            </div>
+          </>
         ) : (
           <div className="my-3 row row-cols-2 row-cols-md-2 row-cols-lg-4">
             {currentFilteredItems.map((item) => (

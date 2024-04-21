@@ -35,13 +35,15 @@ const RideDetails = () => {
        <div className="col-lg-4">
         <img src={ride} alt="ride" style={{width:"100%"}}/>
         
-      <a href="/ridesharing" className="bu    tn" style={{backgroundColor:"#d7e5be"}}>Back</a>
+      <a href="/ridesharing" className="butn" style={{backgroundColor:"#d7e5be"}}>Back</a>
        </div>
 
        <div className="col-lg-8">
-       {rideData ? (
+       {/* {rideData ? ( */}
         <div className="card" style={{transform:"none", background:"none", border:"3px solid green"}}>
           <div className="card-body p-5">
+          {rideData ? (
+            <>
             <h2 className="card-title" style={{backgroundColor:"#dcf8ab",padding:8,borderRadius:10}}>
               {rideData.startingPoint} to {rideData.endPoint}
             </h2> <br/>
@@ -52,16 +54,16 @@ const RideDetails = () => {
             <p className="card-text">Total Fare: {rideData.fare}</p>
             <p className="card-text">Gender: {rideData.gender}</p>
             <p className="card-text">Contact Number: <a style={{textDecoration:"none"}} href={`tel:${rideData.contactNumber}`}>{rideData.contactNumber}</a></p>
+            </>
+          ): (
+            <div>
+              <div className="d-flex justify-content-center align-items-center" style={{marginTop:"25%"}}>
+        <Spinner animation="border" variant="success" /> 
+      </div>
+            </div>
+          )}
           </div>
         </div>
-      ) : (
-        <div>
-          <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner> 
-      <p>Loading</p>
-        </div>
-      )}
        </div>
       </div>
     </div>

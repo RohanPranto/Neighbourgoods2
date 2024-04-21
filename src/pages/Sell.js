@@ -324,7 +324,9 @@ function Sell() {
         </div>
       </div>
       ) :(
-        <h1 style={{paddingLeft:20}}>Please login to continue</h1>
+        <div className="container vh-100 pt-5">
+          <h1 style={{paddingLeft:20}}>Please login to continue</h1>
+        </div>
       )}
     </div>
   );
