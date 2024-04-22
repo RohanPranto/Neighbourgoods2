@@ -3,7 +3,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { firestore } from "../firebase";
 import { Link } from "react-router-dom";
-import map from "../assets/map.png";
 import "../assets/Ride.css";
 import "../assets/Home.css";
 const RideSharingForm = () => {

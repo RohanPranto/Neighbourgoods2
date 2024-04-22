@@ -49,6 +49,7 @@ const LogoutButton = () => {
 const Navbar = () => {
   const { isAuthenticated, user } = useAuth0();
   const [navbarExpanded, setNavbarExpanded] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State to manage dropdown menu visibility
 
   const handleNavbarToggle = () => {
     setNavbarExpanded(!navbarExpanded);
@@ -56,6 +57,16 @@ const Navbar = () => {
 
   const handleLinkClick = () => {
     setNavbarExpanded(false);
+  };
+
+  // Function to handle mouse enter event for the dropdown menu
+  const handleDropdownEnter = () => {
+    setIsDropdownOpen(true);
+  };
+
+  // Function to handle mouse leave event for the dropdown menu
+  const handleDropdownLeave = () => {
+    setIsDropdownOpen(false);
   };
 
   return (
@@ -97,19 +108,19 @@ const Navbar = () => {
               </Link>
             </li>
 
-            <li className="nav-item">
+            <li className="nav-item" onMouseEnter={handleDropdownEnter} onMouseLeave={handleDropdownLeave}>
               <div className="dropdown">
                 <button
                   className="btn dropdown-toggle"
                   type="button"
                   id="dropdownMenuButton1"
                   data-bs-toggle="dropdown"
-                  aria-expanded="false"
+                  aria-expanded={isDropdownOpen ? "true" : "false"}
                 >
                   SOLUTION
                 </button>
                 <ul
-                  className="dropdown-menu"
+                  className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}
                   aria-labelledby="dropdownMenuButton1"
                 >
                   <li>

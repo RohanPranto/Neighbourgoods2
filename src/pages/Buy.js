@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
-import { collection, query, getDocs, addDoc } from "firebase/firestore";
-import { cartCollectionRef, firestore } from "../firebase";
+import { collection, query, getDocs } from "firebase/firestore";
+import { firestore } from "../firebase";
 import "../App.css";
 import group69 from "../assets/Group69.png";
 import { Link } from "react-router-dom";
 
 function Buy() {
-  const { user, isAuthenticated } = useAuth0();
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(12);
@@ -106,7 +104,7 @@ function Buy() {
           </div>
         </div>
 
-        <h3 className="sub-header mb-4 text-center">What are you looking for?</h3>
+        <h3 className="sub-header mb-4 text-center text-muted">What are you looking for?</h3>
         
         <div className="row mb-4">
           <div className="col-md-12">
@@ -126,7 +124,7 @@ function Buy() {
             </div>
           </div>
         ) :(
-        <div className="row row-cols-2 row-cols-md-2 row-cols-lg-4">
+        <div className="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-0">
           {currentProducts.map((product) => (
             <div key={product.id} className="col mb-4">
                <Link to={`/product/${product.id}`} className="text-decoration-none">
