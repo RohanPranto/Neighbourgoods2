@@ -12,6 +12,7 @@ function Buy() {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(12);
   const [searchTerm, setSearchTerm] = useState("");
+  const  [loading, setLoading] = useState(true);
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -52,6 +53,7 @@ function Buy() {
       });
   
       setProducts(productsData);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching products:", error);
     }
@@ -105,6 +107,7 @@ function Buy() {
         </div>
 
         <h3 className="sub-header mb-4 text-center">What are you looking for?</h3>
+        
         <div className="row mb-4">
           <div className="col-md-12">
             <input
@@ -116,7 +119,13 @@ function Buy() {
             />
           </div>
         </div>
-
+        {loading ? (
+          <div className="d-flex justify-content-center align-items-center" style={{height:"60vh"}}>
+            <div className="spinner-border text-success" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        ) :(
         <div className="row row-cols-2 row-cols-md-2 row-cols-lg-4">
           {currentProducts.map((product) => (
             <div key={product.id} className="col mb-4">
@@ -148,8 +157,8 @@ function Buy() {
               </Link>
             </div>
           ))}
-        </div>
-
+        </div>)
+}
         <div className="text-center my-3 mb-5">
           <button className="butn mr-3" onClick={() => paginate(1)}>
             Previous

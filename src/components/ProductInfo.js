@@ -9,7 +9,9 @@ import { Spinner } from "react-bootstrap";
 function ProductInfo({ setCartItems }) {
   const { isAuthenticated, user } = useAuth0();
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(false);
   const { productId } = useParams();
+  const { loginWithRedirect } = useAuth0();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -24,6 +26,8 @@ function ProductInfo({ setCartItems }) {
         }
       } catch (error) {
         console.error("Error fetching product:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -41,9 +45,10 @@ function ProductInfo({ setCartItems }) {
         console.error("Product not found");
         return;
       }
-
+setLoading(true);
       await addDoc(cartCollectionRef, { ...product, userId: user.sub });
       alert(`Added ${product.name} to your cart.`);
+      setLoading(false);
       setCartItems((prevItems) => [
         ...prevItems,
         { ...product, userId: user.sub },
@@ -126,7 +131,14 @@ function ProductInfo({ setCartItems }) {
                     </Link>
                   </div>
                   <div className="col-lg-6">
-                    <button
+                    { loading ? (
+                      <button className="btn border-success border-2 w-100 h-100">
+                        <div className="d-flex justify-content-center">
+                      <Spinner animation="border" variant="success" size="sm" />
+                    </div>
+                      </button>
+                    ):(
+                      <button
                       className="btn border-success border-2 w-100"
                       onClick={addToCart}
                       style={{
@@ -144,11 +156,14 @@ function ProductInfo({ setCartItems }) {
                       }
                     >
                       Add to Cart
-                    </button>
+                    </button>)}
                   </div>
                 </div>
               ) : (
-                <p className="card-text text-danger">Login to buy or add to cart</p>
+                <div>
+                  {/* <p className="card-text text-danger">Login to buy or add to cart</p> */}
+                <button className="btn btn-success btn-sm" onClick={loginWithRedirect}>Login to buy or add to cart</button>
+                </div>
               )}
             </div>
           </div>
