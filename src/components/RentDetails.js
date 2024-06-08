@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
-
+import { Link } from "react-router-dom";
 function RentDetails() {
   const [rent, setrent] = useState(null);
   const { rentId } = useParams(); // Get the rentId from the route params
@@ -60,7 +60,7 @@ function RentDetails() {
               >
                 {rent.name}
               </h1>
-              <p className="card-text fw-bold">Rs {rent.rentCost} for {rent.rentDuration}</p>
+              <p className="card-text fw-bold">Rs {rent.rentCost} Per Month</p>
               <p className="card-text">Duration: {rent.rentDuration}</p>
               <p className="card-text">Location: {rent.location}</p>
               <p className="card-text">Description: {rent.description}</p>
@@ -83,6 +83,8 @@ function RentDetails() {
                   </p>
                 </div>
               )}
+              <a className="btn btn-success" href={`tel:${rent.contactNumber}`}><i class='bx bx-phone-call' style={{rotate:"none"}}></i>Call Now</a>
+
             </div>
           </div>
         </div>

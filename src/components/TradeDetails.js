@@ -52,7 +52,6 @@ function TradeDetails() {
               border: "3px solid green",
             }}
           >
-            <div className="card-body">
               <h1 style={{backgroundColor:"#dcf8ab",padding:8,borderRadius:12,border: "2px solid green",}}>{trade.name}</h1>
               <p className="card-text">Location: {trade.location}</p>
               <p className="card-text">Description: {trade.description}</p>
@@ -74,8 +73,8 @@ function TradeDetails() {
                   </p>
                 </div>
               )}
+              <a className="btn btn-success mt-1" href={`tel:${trade.contactNumber}`}><i class='bx bx-phone-call' style={{rotate:"none"}}></i>Call Now</a>
             </div>
-          </div>
         </div>
       </div>{" "}
       <br /> <br />
