@@ -47,7 +47,7 @@ function Contact() {
             All rights reserved ©️Neighbourgoods 2023 <br />
             Developed by <a href="https://rohanpranto.github.io">RohanBiswas</a>{" "}
           · <br className="footfoot"/>
-            Designed by <a href="https://monjimalahiri.me">Monjima Lahiri</a>
+            Designed by <a href="https://monjimalahiri.github.io">Monjima Lahiri</a>
             <span className="up-arrow">
               <a className="p-2" href="#"><i className="bx bx-up-arrow-alt"></i></a>
               

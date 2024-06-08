@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "../assets/logo.png";
 import {
-  faShoppingCart,
-  faUser,
   faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import "../assets/Navbar.css";
