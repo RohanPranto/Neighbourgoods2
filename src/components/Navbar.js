@@ -136,7 +136,7 @@ const Navbar = () => {
                       to="/sell"
                       onClick={handleLinkClick}
                     >
-                      Sell your goods<i className='bx bx-up-arrow-alt' ></i>
+                      Enlist your items<i className='bx bx-up-arrow-alt' ></i>
                     </Link>
                   </li>
                   <li>

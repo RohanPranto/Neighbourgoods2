@@ -17,6 +17,7 @@ function TradeDetails() {
           setTrade(tradeSnapshot.data());
         } else {
           console.error("Trade item not found");
+          alert("Trade item not found");
         }
       } catch (error) {
         console.error("Error fetching trade item:", error);
@@ -40,7 +41,7 @@ function TradeDetails() {
     <div className="container">
       <div className="row mb-3 mt-5">
         <div className="col-md-4 d-flex justify-content-center align-items-center">
-          <img src={trade.imageUrl} style={{aspectRatio:"1/1"}} className="img-fluid" alt={trade.name} />
+          <img src={trade.imageUrl} style={{aspectRatio:"1/1", width:"100%"}} className="" alt={trade.name} />
         </div>
         <div className="col-md-8">
           <div
@@ -53,7 +54,12 @@ function TradeDetails() {
             }}
           >
               <h1 style={{backgroundColor:"#dcf8ab",padding:8,borderRadius:12,border: "2px solid green",}}>{trade.name}</h1>
-              <p className="card-text">Location: {trade.location}</p>
+              <p className="card-text">
+                <span className="badge bg-warning text-dark">Location: {trade.location}</span>
+              </p>
+              <p className="card-text">
+                <span className="badge bg-success text-dark">Exchange For: {trade.exchangeFor}</span>
+              </p>
               <p className="card-text">Description: {trade.description}</p>
               <p className="card-text">Contact: <a style={{textDecoration:"none"}} href={`tel:${trade.contactNumber}`}>{trade.contactNumber}</a>
  </p>
@@ -64,7 +70,6 @@ function TradeDetails() {
                   <p className="card-text">
                     Exchange or Rent: {trade.exchangeOrRent}
                   </p>
-                  <p className="card-text">Exchange For: {trade.exchangeFor}</p>
                   <p className="card-text">
                     Item Used For How Long: {trade.itemUsedForHowLong}
                   </p>
